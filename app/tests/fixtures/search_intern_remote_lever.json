@@ -1,0 +1,80 @@
+{
+  "query": "software engineering intern site:jobs.lever.co",
+  "results": [
+    {
+      "position": 1,
+      "site_name": "jobs.lever.co",
+      "snippet": "What you will do: \u00b7 Help build out our factory operating system. \u00b7 Design interfaces for production machinery to capture real time data. \u00b7 Collaborate and ...",
+      "title": "Software Engineering Intern - Layup Parts",
+      "url": "https://jobs.lever.co/layup/0b42f7ad-ebdc-4b4a-8fe6-47640f6dba53"
+    },
+    {
+      "position": 2,
+      "site_name": "jobs.lever.co",
+      "snippet": "Software Engineering Interns at QuantCo will help build robust and scalable solutions with tangible impact.",
+      "title": "Software Engineering Intern - QuantCo",
+      "url": "https://jobs.lever.co/quantco-/d69096fa-b673-4953-ba63-7deee08bc13c"
+    },
+    {
+      "position": 3,
+      "site_name": "jobs.lever.co",
+      "snippet": "Our 10-week paid internship program. Over 10\u201312 weeks, interns work alongside full-time engineers to analyze requirements, write and debug production-quality ...",
+      "title": "Shield AI - Summer 2027 - Software Engineer Intern",
+      "url": "https://jobs.lever.co/shieldai/8c850c75-081d-4d09-bebf-096379a93010"
+    },
+    {
+      "position": 4,
+      "site_name": "jobs.lever.co",
+      "snippet": "What We Require \u00b7 Engineering background in fields such as Computer Science, Mathematics, Software Engineering, and Physics. \u00b7 Familiarity with data structures, ...",
+      "title": "Software Engineer, Internship - Palantir Technologies",
+      "url": "https://jobs.lever.co/palantir/e27af7ab-41fc-40c9-b31d-02c6cb1c505c"
+    },
+    {
+      "position": 5,
+      "site_name": "jobs.lever.co",
+      "snippet": "This is a hands-on role where you'll work alongside experienced engineers, contribute to real projects, Stipend: \u20b930,000 \u2013 \u20b950,000 per month Duration: Minimum ...",
+      "title": "Weekday - Software Engineer Intern",
+      "url": "https://jobs.lever.co/weekdayworks/a86efff4-1c2e-43fc-8ecb-dc8f873db2f1"
+    },
+    {
+      "position": 6,
+      "site_name": "jobs.lever.co",
+      "snippet": "The Software Engineering \"Hardware in the Loop\" intern will support the setup, integration, maintenance, and testing of real-time simulation environments",
+      "title": "Software Engineering Intern (HIL) - Spring/Summer 2027",
+      "url": "https://jobs.lever.co/hermeus/d87ed913-affc-475e-b721-c5b5f11c3c7b"
+    },
+    {
+      "position": 7,
+      "site_name": "jobs.lever.co",
+      "snippet": "At Belvedere Trading, our pragmatic Software Engineer Interns work directly with full-time Software Engineers and other interns to develop our low latency, ...",
+      "title": "Belvedere Trading - Software Engineer Intern - Summer 2027",
+      "url": "https://jobs.lever.co/belvederetrading/10746b3d-1760-4573-9b63-b93f5a5e4fc0"
+    },
+    {
+      "position": 8,
+      "site_name": "jobs.lever.co",
+      "snippet": "As a Software Engineering Intern at Neighbor you will be building technology to power our nation-wide online marketplace. Join us as a full eng team member",
+      "title": "Neighbor - Software Engineer Intern 2027",
+      "url": "https://jobs.lever.co/neighbor/7d66629f-3f4b-41ee-a324-fe0154e13c46"
+    },
+    {
+      "position": 9,
+      "site_name": "jobs.lever.co",
+      "snippet": "Required Skills & Qualifications: \u00b7 Demonstrated experience working in embedded systems \u00b7 Currently enrolled in a Computer Science or equivalent degree program ...",
+      "title": "Embedded Software Engineering Intern (January 2027) (4 ...",
+      "url": "https://jobs.lever.co/kepler/2ad02ce3-1d56-4aee-9f1d-5199c780c0c1"
+    },
+    {
+      "position": 10,
+      "site_name": "jobs.lever.co",
+      "snippet": "What We Require \u00b7 Engineering background in fields such as Computer Science, Mathematics, Software Engineering, or Physics. \u00b7 Familiarity with data structures, ...",
+      "title": "Software Engineer, Internship - Palantir Technologies",
+      "url": "https://jobs.lever.co/palantir/b229baac-494b-4a0d-9a13-2e38806e06f3"
+    }
+  ],
+  "total_results": 10,
+  "page": 0,
+  "_captured": "2026-10-13 via the TinyFish connector helper (real live response, unedited except this label)",
+  "_note": "Search capture for query: software engineering intern site:jobs.lever.co",
+  "_query": "software engineering intern site:jobs.lever.co"
+}

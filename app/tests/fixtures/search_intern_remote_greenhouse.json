@@ -1,0 +1,80 @@
+{
+  "query": "software engineering intern Remote site:job-boards.greenhouse.io",
+  "results": [
+    {
+      "position": 1,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "We are looking for talented software engineers for our 12-week remote Summer 2027 internship program. We currently use: Go, JavaScript (React / React Native, ...",
+      "title": "Software Engineer Intern (Summer 2027)",
+      "url": "https://job-boards.greenhouse.io/khanacademy/jobs/8250259"
+    },
+    {
+      "position": 2,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "As an intern at Stripe you'll work on projects across our stack that directly impact the way millions of businesses operate. You'll own problems end. In-office ...",
+      "title": "Stripe Careers | Software Engineer, Intern",
+      "url": "https://job-boards.greenhouse.io/stripe/jobs/8031833"
+    },
+    {
+      "position": 3,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "The Software Engineer Intern will assist in developing new and exciting products. Write well-designed, efficient, and testable code. Troubleshoot, debug and ...",
+      "title": "Software Engineer Intern (Remote)",
+      "url": "https://job-boards.greenhouse.io/knowbe4/jobs/8870749002"
+    },
+    {
+      "position": 4,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "Summer 2027 (Remote) at Riot Games. Minimum GPA of 2.5 Available to work full-time hours for the 12 week internship. Internships are paid, 401(k) plan.",
+      "title": "Software Engineering Intern - Summer 2027 (Remote)",
+      "url": "https://job-boards.greenhouse.io/riotgamesup/jobs/8222015"
+    },
+    {
+      "position": 5,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "Software Engineering Internship - San Francisco ... Our offices are open for those who prefer to work in-person and we also support remote work where it aligns ...",
+      "title": "Software Engineering Internship - San Francisco",
+      "url": "https://job-boards.greenhouse.io/samsara/jobs/8082091"
+    },
+    {
+      "position": 6,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "We're looking for Software Engineering Interns to help build and scale the systems that power Datadog's observability and security platform.",
+      "title": "Software Engineering Intern (Summer) | Datadog Careers",
+      "url": "https://job-boards.greenhouse.io/datadog/jobs/8052118"
+    },
+    {
+      "position": 7,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "We're looking for inquisitive, collaborative interns to join our engineering teams. Working closely with mentors and product, design, data, and backend ...",
+      "title": "Software Engineer Intern 2027 (USA)",
+      "url": "https://job-boards.greenhouse.io/pinterest/jobs/7838577"
+    },
+    {
+      "position": 8,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "Location: This position will be located remotely and expected to be in Ann Arbor for one week during onboarding. Job level and actual compensation will be ...",
+      "title": "2027 Software Engineering Intern",
+      "url": "https://job-boards.greenhouse.io/censysinternships/jobs/8795029002"
+    },
+    {
+      "position": 9,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "As an intern working with the Backend Engineering team, you will have opportunities to work across the full software stack and collaborate cross-functionally to ...",
+      "title": "Backend Software Engineering Intern 2027",
+      "url": "http://job-boards.greenhouse.io/verkada/jobs/5210813007"
+    },
+    {
+      "position": 10,
+      "site_name": "job-boards.greenhouse.io",
+      "snippet": "Spring 2027 Software Engineering Internship/Co-op \u00b7 Must be enrolled in a bachelor's degree or graduate program \u00b7 3+ months of software programming or development ...",
+      "title": "Spring 2027 Software Engineering Internship/Co-op",
+      "url": "http://job-boards.greenhouse.io/spacex/jobs/8621756002"
+    }
+  ],
+  "total_results": 10,
+  "page": 0,
+  "_captured": "2026-10-13 via the TinyFish connector helper (real live responses, unedited except this label)",
+  "_note": "Search capture for prefs role=software engineering intern, location=Remote",
+  "_query": "software engineering intern Remote site:job-boards.greenhouse.io"
+}
