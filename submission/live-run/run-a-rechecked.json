@@ -1,0 +1,508 @@
+{
+  "tool": "JobScout",
+  "generated_at": "2026-10-14T04:52:47+00:00",
+  "prefs": {
+    "role": "software engineering intern",
+    "location": "Remote",
+    "keywords": [
+      "python"
+    ],
+    "exclude_keywords": [],
+    "seniority": "intern",
+    "visa": "any",
+    "limit": 15
+  },
+  "queries": [
+    "software engineering intern Remote site:job-boards.greenhouse.io",
+    "software engineering intern Remote site:jobs.lever.co",
+    "software engineering intern Remote site:jobs.ashbyhq.com",
+    "software engineering intern Remote site:myworkdayjobs.com",
+    "software engineering intern Remote careers job posting apply",
+    "software engineering intern python Remote job posting"
+  ],
+  "candidates_seen": 59,
+  "posting_candidates": 39,
+  "dropped_candidates": 20,
+  "dropped_pages": 2,
+  "call_counts": {
+    "search": 6,
+    "fetch": 24,
+    "agent_run": 0,
+    "agent_status": 0
+  },
+  "failed_queries": [],
+  "agent_target_pages": [
+    {
+      "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Software-Engineering-Intern---Summer-2027_R73630-1",
+      "reason": "fetch returned no page"
+    },
+    {
+      "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday_Early_Career/job/Software-Development-Engineer-Intern_JR-0110810",
+      "reason": "fetch returned no page"
+    }
+  ],
+  "agent_queue": [
+    {
+      "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Software-Engineering-Intern---Summer-2027_R73630-1",
+      "reason": "fetch returned no page"
+    },
+    {
+      "url": "https://workday.wd5.myworkdayjobs.com/en-US/Workday_Early_Career/job/Software-Development-Engineer-Intern_JR-0110810",
+      "reason": "fetch returned no page"
+    }
+  ],
+  "listings": [
+    {
+      "title": "Software Engineer Intern",
+      "company": "Weekday",
+      "company_source": "page",
+      "location": "Remote",
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.lever.co/weekdayworks/a86efff4-1c2e-43fc-8ecb-dc8f873db2f1",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.lever.co/weekdayworks/a86efff4-1c2e-43fc-8ecb-dc8f873db2f1",
+        "https://jobs.lever.co/weekdayworks/a86efff4-1c2e-43fc-8ecb-dc8f873db2f1/apply"
+      ],
+      "source_host": "jobs.lever.co",
+      "evidence": "Weekday - Software Engineer Intern",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.87,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "location matches 'Remote'",
+        "keyword 'python' found on the page",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": []
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company": "Simular",
+      "company_source": "ats-slug",
+      "location": "Palo Alto; Remote; Singapore",
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.ashbyhq.com/simular/063f177b-c3f2-44d2-8eeb-622a977e7d5a",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.ashbyhq.com/simular/063f177b-c3f2-44d2-8eeb-622a977e7d5a"
+      ],
+      "source_host": "jobs.ashbyhq.com",
+      "evidence": "Software Engineer Intern",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.87,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "location matches 'Remote'",
+        "keyword 'python' found on the page",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": []
+    },
+    {
+      "title": "Software Engineer Intern 2027 (USA)",
+      "company": "Pinterest",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://www.pinterestcareers.com/jobs/7838577/software-engineer-intern-2027-usa/",
+      "posted_text": null,
+      "source_urls": [
+        "https://job-boards.greenhouse.io/pinterest/jobs/7838577",
+        "https://www.pinterestcareers.com/jobs/7838577/software-engineer-intern-2027-usa/"
+      ],
+      "source_host": "pinterestcareers.com",
+      "evidence": "Software Engineer Intern 2027 (USA)",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.787,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "page text mentions Remote, but no location is stated (partial)",
+        "keyword 'python' found on the page",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": []
+    },
+    {
+      "title": "Software Engineering Intern - Robotics R&D page is loaded",
+      "company": "Jj",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Santa-Clara-California-United-States-of-America/Software-Engineering-Intern---Robotics-R-D_R-099919",
+      "posted_text": "Posted 28 Days Ago",
+      "source_urls": [
+        "https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Santa-Clara-California-United-States-of-America/Software-Engineering-Intern---Robotics-R-D_R-099919"
+      ],
+      "source_host": "jj.wd5.myworkdayjobs.com",
+      "evidence": "Software Engineering Intern - Robotics R&amp;D",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.694,
+      "match_reasons": [
+        "role match in title (3/3 terms)",
+        "page text mentions Remote, but no location is stated (partial)",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Software Engineer - Intern",
+      "company": "Realmalliance",
+      "company_source": "ats-slug",
+      "location": "Remote",
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.ashbyhq.com/realmalliance/a8a2f78e-1c28-4b52-a77a-c2b2ad9b7a8a",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.ashbyhq.com/realmalliance/a8a2f78e-1c28-4b52-a77a-c2b2ad9b7a8a"
+      ],
+      "source_host": "jobs.ashbyhq.com",
+      "evidence": "Software Engineer - Intern",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.648,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "location matches 'Remote'",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Hybrid / Remote first",
+      "company": "Espa",
+      "company_source": "ats-slug",
+      "location": "Remote",
+      "seniority": "intern",
+      "seniority_source": "page",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.ashbyhq.com/espa/6fa2d441-971f-44c4-9a4e-3304ea041cc8",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.ashbyhq.com/espa/6fa2d441-971f-44c4-9a4e-3304ea041cc8"
+      ],
+      "source_host": "jobs.ashbyhq.com",
+      "evidence": "Software Engineer INTERN",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.611,
+      "match_reasons": [
+        "location matches 'Remote'",
+        "keyword 'python' found on the page",
+        "seniority matches 'intern' (from page)"
+      ],
+      "conflicts": [
+        "title does not mention the requested role"
+      ]
+    },
+    {
+      "title": "Software Engineer Intern (Summer 2027)",
+      "company": "Khanacademy",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://job-boards.greenhouse.io/khanacademy/jobs/8250259",
+      "posted_text": null,
+      "source_urls": [
+        "https://job-boards.greenhouse.io/khanacademy/jobs/8250259"
+      ],
+      "source_host": "job-boards.greenhouse.io",
+      "evidence": "Software Engineer Intern (Summer 2027)",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.565,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "page text mentions Remote, but no location is stated (partial)",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Software Engineer Intern page is loaded",
+      "company": "Igsenergy",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://igsenergy.wd1.myworkdayjobs.com/en-US/IGS/job/Software-Engineer-Intern_R6263",
+      "posted_text": "Posted 14 Days Ago",
+      "source_urls": [
+        "https://igsenergy.wd1.myworkdayjobs.com/en-US/IGS/job/Software-Engineer-Intern_R6263"
+      ],
+      "source_host": "igsenergy.wd1.myworkdayjobs.com",
+      "evidence": "Software Engineer Intern",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.565,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "page text mentions Remote, but no location is stated (partial)",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Software Engineer, Intern",
+      "company": "Stripe",
+      "company_source": "page",
+      "location": null,
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://stripe.com/careers/listing/software-engineer-intern/8031833?gh_jid=8031833",
+      "posted_text": null,
+      "source_urls": [
+        "https://job-boards.greenhouse.io/stripe/jobs/8031833",
+        "https://stripe.com/careers/listing/software-engineer-intern/8031833?gh_jid=8031833"
+      ],
+      "source_host": "stripe.com",
+      "evidence": "Stripe Careers | Software Engineer, Intern",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.509,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "location not stated on the page (neutral)",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Software Engineer, Internship",
+      "company": "Palantir Technologies",
+      "company_source": "page",
+      "location": null,
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0"
+      ],
+      "source_host": "jobs.lever.co",
+      "evidence": "Palantir Technologies - Software Engineer, Internship",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.509,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "location not stated on the page (neutral)",
+        "seniority matches 'intern' (from title)"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Forward Deployed Software Engineer, Internship - US Government",
+      "company": "Palantir Technologies",
+      "company_source": "page",
+      "location": "Honolulu, HI",
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.lever.co/palantir/315f695d-04d1-4a9a-848e-cb2bec7a997e",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.lever.co/palantir/315f695d-04d1-4a9a-848e-cb2bec7a997e"
+      ],
+      "source_host": "jobs.lever.co",
+      "evidence": "Palantir Technologies - Forward Deployed Software Engineer, Internship - US Government",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "keyword 'python' found on the page",
+        "seniority matches 'intern' (from title)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "location 'Honolulu, HI' conflicts with 'Remote'"
+      ]
+    },
+    {
+      "title": "Software Engineering Internship - San Francisco",
+      "company": "Samsara",
+      "company_source": "ats-slug",
+      "location": "San Francisco",
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091",
+      "posted_text": null,
+      "source_urls": [
+        "https://job-boards.greenhouse.io/samsara/jobs/8082091",
+        "https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091"
+      ],
+      "source_host": "samsara.com",
+      "evidence": "Software Engineering Internship - San Francisco  - San Francisco - SF9",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (3/3 terms)",
+        "seniority matches 'intern' (from title)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "location 'San Francisco' conflicts with 'Remote'",
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Digital Software Engineering Intern - Summer 2027 page is loaded",
+      "company": "Hyvee",
+      "company_source": "ats-slug",
+      "location": "West Des Moines, IA",
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://hyvee.wd1.myworkdayjobs.com/en-US/HyVeeCareers/job/Digital-Software-Engineering-Intern---Summer-2027_R250133",
+      "posted_text": "Posted 15 Days Ago",
+      "source_urls": [
+        "https://hyvee.wd1.myworkdayjobs.com/en-US/HyVeeCareers/job/Digital-Software-Engineering-Intern---Summer-2027_R250133"
+      ],
+      "source_host": "hyvee.wd1.myworkdayjobs.com",
+      "evidence": "Digital Software Engineering Intern - Summer 2027",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (3/3 terms)",
+        "seniority matches 'intern' (from title)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "location 'West Des Moines, IA' conflicts with 'Remote'",
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Software Engineer Intern 2027",
+      "company": "Neighbor",
+      "company_source": "page",
+      "location": "Lehi, UT",
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.lever.co/neighbor/7d66629f-3f4b-41ee-a324-fe0154e13c46",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.lever.co/neighbor/7d66629f-3f4b-41ee-a324-fe0154e13c46"
+      ],
+      "source_host": "jobs.lever.co",
+      "evidence": "Neighbor - Software Engineer Intern 2027",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "keyword 'python' found on the page",
+        "seniority matches 'intern' (from title)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "location 'Lehi, UT' conflicts with 'Remote'"
+      ]
+    },
+    {
+      "title": "Software Engineer Intern page is loaded",
+      "company": "Redhat",
+      "company_source": "ats-slug",
+      "location": "Boston, MA",
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://redhat.wd5.myworkdayjobs.com/en-US/Jobs/job/Software-Engineer-Intern_R-059038",
+      "posted_text": null,
+      "source_urls": [
+        "https://redhat.wd5.myworkdayjobs.com/en-US/Jobs/job/Software-Engineer-Intern_R-059038"
+      ],
+      "source_host": "redhat.wd5.myworkdayjobs.com",
+      "evidence": "Software Engineer Intern",
+      "fetched_at": "2026-10-14T04:52:47+00:00",
+      "status": "live",
+      "last_checked": "2026-10-14T04:56:04+00:00",
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/3 terms)",
+        "keyword 'python' found on the page",
+        "seniority matches 'intern' (from title)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "location 'Boston, MA' conflicts with 'Remote'"
+      ]
+    }
+  ],
+  "agent_fetch_evidence": {
+    "url": "https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern",
+    "fetch_text_chars": 9777,
+    "fetch_errors": []
+  },
+  "agent_runs": [
+    {
+      "url": "https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern",
+      "goal": "List up to 5 current software engineering intern job postings visible on this page. Return each posting as exactly one line in this format: Job title - Company - Location - full posting URL. Do not click into individual postings.",
+      "run_id": "a526367e-5e24-41a3-9271-46e049342f09",
+      "status": "completed",
+      "steps": 4,
+      "polls": 4,
+      "elapsed_s": 38.5,
+      "budget_guard_tripped": false,
+      "error": null,
+      "raw_status_tail": "{\"run_id\": \"a526367e-5e24-41a3-9271-46e049342f09\", \"status\": \"COMPLETED\", \"goal\": \"Navigate to https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern to complete the goal: List up to 5 current software engineering intern job postings visible on this page. Return each posting as exactly one line in this format: Job title - Company - Location - full posting URL. Do not click into individual postings.\", \"created_at\": \"2026-10-14T03:24:55Z\", \"started_at\": \"2026-10-14T03:24:57Z\", \"finished_at\": \"2026-10-14T03:25:13Z\", \"num_of_steps\": 3, \"result\": {\"result\": \"The task cannot be completed. When navigating to https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern, the page returned a \\\"Sorry, you have been blocked\\\" error message (indicated by \\\"You are unable to access linkedin.com\\\"). This is a security/anti-bot block that prevents access to the job listings. Without being able to access the page, I cannot retrieve the software engineering intern job postings.\"}, \"output_schema\": null, \"profile_attached\": false, \"profile_id\": null, \"error\": null, \"streaming_url\": \"[streaming url stripped] \"browser_config\": {\"proxy_enabled\": false, \"proxy_country_code\": null}, \"video_url\": null, \"steps\": [{\"id\": \"5125f78d-5414-4d85-8071-a73b5ce95bff\", \"timestamp\": \"2026-10-14T03:24:58Z\", \"status\": \"RUNNING\", \"action\": \"Navigate to LinkedIn software engineering intern j",
+      "listings_parsed": 0
+    }
+  ],
+  "rechecked_at": "2026-10-14T04:56:04+00:00",
+  "recheck_counts": {
+    "live": 15,
+    "gone": 0,
+    "unreachable": 0
+  }
+}

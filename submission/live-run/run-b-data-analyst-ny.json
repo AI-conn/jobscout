@@ -1,0 +1,475 @@
+{
+  "tool": "JobScout",
+  "generated_at": "2026-10-14T04:55:31+00:00",
+  "prefs": {
+    "role": "data analyst",
+    "location": "New York",
+    "keywords": [
+      "sql"
+    ],
+    "exclude_keywords": [],
+    "seniority": "entry",
+    "visa": "any",
+    "limit": 15
+  },
+  "queries": [
+    "data analyst New York site:job-boards.greenhouse.io",
+    "data analyst New York site:jobs.lever.co",
+    "data analyst New York site:jobs.ashbyhq.com",
+    "data analyst New York site:myworkdayjobs.com",
+    "data analyst New York careers job posting apply",
+    "data analyst sql New York job posting"
+  ],
+  "candidates_seen": 52,
+  "posting_candidates": 40,
+  "dropped_candidates": 12,
+  "dropped_pages": 0,
+  "call_counts": {
+    "search": 6,
+    "fetch": 20,
+    "agent_run": 0,
+    "agent_status": 0
+  },
+  "failed_queries": [],
+  "agent_target_pages": [
+    {
+      "url": "https://jobs.ashbyhq.com/clair/0bf1f3d2-4e05-470f-a640-5a4257472c52",
+      "reason": "fetch returned no page"
+    }
+  ],
+  "agent_queue": [
+    {
+      "url": "https://jobs.ashbyhq.com/clair/0bf1f3d2-4e05-470f-a640-5a4257472c52",
+      "reason": "fetch returned no page"
+    }
+  ],
+  "listings": [
+    {
+      "title": "Data Analyst",
+      "company": "Confido",
+      "company_source": "ats-slug",
+      "location": "NYC Office",
+      "seniority": null,
+      "seniority_source": null,
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.ashbyhq.com/confido/f455c33f-5721-4bfb-9deb-0aeb9c0ea407",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.ashbyhq.com/confido/f455c33f-5721-4bfb-9deb-0aeb9c0ea407"
+      ],
+      "source_host": "jobs.ashbyhq.com",
+      "evidence": "Data Analyst",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.944,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location matches 'New York'",
+        "keyword 'sql' found on the page",
+        "seniority not stated (neutral)"
+      ],
+      "conflicts": []
+    },
+    {
+      "title": "Data Analyst",
+      "company": "Versemedical",
+      "company_source": "ats-slug",
+      "location": "New York City",
+      "seniority": null,
+      "seniority_source": null,
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.ashbyhq.com/versemedical/113007c3-ca81-4dcb-9d1a-334810861f97",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.ashbyhq.com/versemedical/113007c3-ca81-4dcb-9d1a-334810861f97"
+      ],
+      "source_host": "jobs.ashbyhq.com",
+      "evidence": "Data Analyst",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.944,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location matches 'New York'",
+        "keyword 'sql' found on the page",
+        "seniority not stated (neutral)"
+      ],
+      "conflicts": []
+    },
+    {
+      "title": "Data & AI Analyst",
+      "company": "Moab",
+      "company_source": "ats-slug",
+      "location": "New York City",
+      "seniority": null,
+      "seniority_source": null,
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.ashbyhq.com/moab/8ab10f9b-2a49-409d-8b20-7ecf1ed92ee4",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.ashbyhq.com/moab/8ab10f9b-2a49-409d-8b20-7ecf1ed92ee4"
+      ],
+      "source_host": "jobs.ashbyhq.com",
+      "evidence": "Data & AI Analyst",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.944,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location matches 'New York'",
+        "keyword 'sql' found on the page",
+        "seniority not stated (neutral)"
+      ],
+      "conflicts": []
+    },
+    {
+      "title": "Data Analyst II, Business Insights",
+      "company": "Garnerhealth",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": null,
+      "seniority_source": null,
+      "visa_sponsorship": null,
+      "apply_url": "https://job-boards.greenhouse.io/garnerhealth/jobs/6118254004",
+      "posted_text": null,
+      "source_urls": [
+        "http://job-boards.greenhouse.io/garnerhealth/jobs/6118254004",
+        "https://job-boards.greenhouse.io/garnerhealth/jobs/6118254004"
+      ],
+      "source_host": "job-boards.greenhouse.io",
+      "evidence": "Data Analyst II, Business Insights",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.806,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location not stated on the page (neutral)",
+        "keyword 'sql' found on the page",
+        "seniority not stated (neutral)"
+      ],
+      "conflicts": []
+    },
+    {
+      "title": "CX Data Analyst",
+      "company": "Harvey",
+      "company_source": "ats-slug",
+      "location": "New York",
+      "seniority": null,
+      "seniority_source": null,
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.ashbyhq.com/harvey/f8857e81-4062-4669-a7e3-7b73b114979b",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.ashbyhq.com/harvey/f8857e81-4062-4669-a7e3-7b73b114979b"
+      ],
+      "source_host": "jobs.ashbyhq.com",
+      "evidence": "CX Data Analyst",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.722,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location matches 'New York'",
+        "seniority not stated (neutral)"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Commerce Business Analyst page is loaded",
+      "company": "Dowjones",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": null,
+      "seniority_source": null,
+      "visa_sponsorship": null,
+      "apply_url": "https://dowjones.wd1.myworkdayjobs.com/en-US/New_York_Post_Careers/job/Commerce-Business-Analyst_Job_Req_51492",
+      "posted_text": null,
+      "source_urls": [
+        "https://dowjones.wd1.myworkdayjobs.com/en-US/New_York_Post_Careers/job/Commerce-Business-Analyst_Job_Req_51492"
+      ],
+      "source_host": "dowjones.wd1.myworkdayjobs.com",
+      "evidence": "Commerce Business Analyst",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.611,
+      "match_reasons": [
+        "role match in title (1/2 terms)",
+        "location not stated on the page (neutral)",
+        "keyword 'sql' found on the page",
+        "seniority not stated (neutral)"
+      ],
+      "conflicts": []
+    },
+    {
+      "title": "Data Analyst",
+      "company": "Criminaljusticeagency",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": "senior",
+      "seniority_source": "page",
+      "visa_sponsorship": null,
+      "apply_url": "https://job-boards.greenhouse.io/criminaljusticeagency/jobs/8828384002",
+      "posted_text": "POSTED: 9/21/2026",
+      "source_urls": [
+        "http://job-boards.greenhouse.io/criminaljusticeagency/jobs/8828384002",
+        "https://job-boards.greenhouse.io/criminaljusticeagency/jobs/8828384002"
+      ],
+      "source_host": "job-boards.greenhouse.io",
+      "evidence": "Data Analyst ",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location not stated on the page (neutral)",
+        "keyword 'sql' found on the page",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "seniority 'senior' conflicts with 'entry'"
+      ]
+    },
+    {
+      "title": "Senior Data Analyst - Analytics & Transformation page is loaded",
+      "company": "Capitalone",
+      "company_source": "ats-slug",
+      "location": "McLean, VA",
+      "seniority": "senior",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://capitalone.wd12.myworkdayjobs.com/en-US/Capital_One/job/Senior-Data-Analyst---Analytics---Transformation_R249555-1",
+      "posted_text": "Posted Today",
+      "source_urls": [
+        "https://capitalone.wd12.myworkdayjobs.com/en-US/Capital_One/job/Senior-Data-Analyst---Analytics---Transformation_R249555-1"
+      ],
+      "source_host": "capitalone.wd12.myworkdayjobs.com",
+      "evidence": "Senior Data Analyst - Analytics &amp; Transformation",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "keyword 'sql' found on the page",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "location 'McLean, VA' conflicts with 'New York'",
+        "seniority 'senior' conflicts with 'entry'"
+      ]
+    },
+    {
+      "title": "Senior Data Analyst, Reporting",
+      "company": "Garnerhealth",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": "senior",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://job-boards.greenhouse.io/garnerhealth/jobs/6190607004",
+      "posted_text": null,
+      "source_urls": [
+        "https://job-boards.greenhouse.io/garnerhealth/jobs/6190607004"
+      ],
+      "source_host": "job-boards.greenhouse.io",
+      "evidence": "Senior Data Analyst, Reporting",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location not stated on the page (neutral)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page",
+        "seniority 'senior' conflicts with 'entry'"
+      ]
+    },
+    {
+      "title": "Associate Data Analyst page is loaded",
+      "company": "Rfcuny",
+      "company_source": "ats-slug",
+      "location": "New York, NY",
+      "seniority": "senior",
+      "seniority_source": "page",
+      "visa_sponsorship": null,
+      "apply_url": "https://rfcuny.wd108.myworkdayjobs.com/en-US/RFCUNY/job/New-York-NY/Associate-Data-Analyst_JR4696",
+      "posted_text": "Posted 5 Days Ago",
+      "source_urls": [
+        "https://rfcuny.wd108.myworkdayjobs.com/en-US/RFCUNY/job/New-York-NY/Associate-Data-Analyst_JR4696"
+      ],
+      "source_host": "rfcuny.wd108.myworkdayjobs.com",
+      "evidence": "Associate Data Analyst",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location matches 'New York'",
+        "keyword 'sql' found on the page",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "seniority 'senior' conflicts with 'entry'"
+      ]
+    },
+    {
+      "title": "Data Analyst (Entry-Level)",
+      "company": "Recidiviz",
+      "company_source": "ats-slug",
+      "location": "Remote",
+      "seniority": "entry",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://job-boards.greenhouse.io/recidiviz/jobs/4717510006",
+      "posted_text": null,
+      "source_urls": [
+        "https://job-boards.greenhouse.io/recidiviz/jobs/4717510006"
+      ],
+      "source_host": "job-boards.greenhouse.io",
+      "evidence": "Data Analyst (Entry-Level)",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "seniority matches 'entry' (from title)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "location 'Remote' conflicts with 'New York'",
+        "none of the requested keywords appear on the page"
+      ]
+    },
+    {
+      "title": "Senior/Staff Data Analyst",
+      "company": "MoonPay",
+      "company_source": "page",
+      "location": null,
+      "seniority": "senior",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.lever.co/moonpay/e42e3201-53dc-40a5-9d36-1fcdcc5c2d99/apply",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.lever.co/moonpay/e42e3201-53dc-40a5-9d36-1fcdcc5c2d99/apply"
+      ],
+      "source_host": "jobs.lever.co",
+      "evidence": "MoonPay - Senior/Staff Data Analyst",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location not stated on the page (neutral)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page",
+        "seniority 'senior' conflicts with 'entry'"
+      ]
+    },
+    {
+      "title": "Data Analyst, Intern",
+      "company": "Stripe",
+      "company_source": "page",
+      "location": null,
+      "seniority": "intern",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://stripe.com/careers/listing/data-analyst-intern/8194291?gh_jid=8194291",
+      "posted_text": null,
+      "source_urls": [
+        "https://job-boards.greenhouse.io/stripe/jobs/8194291",
+        "https://stripe.com/careers/listing/data-analyst-intern/8194291?gh_jid=8194291"
+      ],
+      "source_host": "stripe.com",
+      "evidence": "Stripe Careers | Data Analyst, Intern",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location not stated on the page (neutral)",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "none of the requested keywords appear on the page",
+        "seniority 'intern' conflicts with 'entry'"
+      ]
+    },
+    {
+      "title": "Senior Health Data Analyst - Compass",
+      "company": "Veeva Systems",
+      "company_source": "page",
+      "location": "Remote",
+      "seniority": "senior",
+      "seniority_source": "title",
+      "visa_sponsorship": null,
+      "apply_url": "https://jobs.lever.co/veeva/ffe5227a-d8f6-457b-b58f-516cf3fd4073",
+      "posted_text": null,
+      "source_urls": [
+        "https://jobs.lever.co/veeva/ffe5227a-d8f6-457b-b58f-516cf3fd4073"
+      ],
+      "source_host": "jobs.lever.co",
+      "evidence": "Veeva Systems - Senior Health Data Analyst - Compass",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "keyword 'sql' found on the page",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "location 'Remote' conflicts with 'New York'",
+        "seniority 'senior' conflicts with 'entry'"
+      ]
+    },
+    {
+      "title": "Data Analyst I page is loaded",
+      "company": "Rochester",
+      "company_source": "ats-slug",
+      "location": null,
+      "seniority": "senior",
+      "seniority_source": "page",
+      "visa_sponsorship": null,
+      "apply_url": "https://rochester.wd5.myworkdayjobs.com/en-US/UR_Staff/job/Data-Analyst-I_R273457",
+      "posted_text": null,
+      "source_urls": [
+        "https://rochester.wd5.myworkdayjobs.com/en-US/UR_Staff/job/Data-Analyst-I_R273457"
+      ],
+      "source_host": "rochester.wd5.myworkdayjobs.com",
+      "evidence": "Data Analyst I",
+      "fetched_at": "2026-10-14T04:55:31+00:00",
+      "status": "unchecked",
+      "last_checked": null,
+      "match_score": 0.49,
+      "match_reasons": [
+        "role match in title (2/2 terms)",
+        "location not stated on the page (neutral)",
+        "keyword 'sql' found on the page",
+        "score capped at 0.49 due to a hard seniority/location conflict"
+      ],
+      "conflicts": [
+        "seniority 'senior' conflicts with 'entry'"
+      ]
+    }
+  ]
+}
