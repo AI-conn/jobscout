@@ -1,0 +1,384 @@
+{
+  "run_id": "d71dcce7-b04d-4096-8f2d-77a17fcc8cc9",
+  "status": "COMPLETED",
+  "goal": "Navigate to https://careers.microsoft.com/us/en/search-results?keywords=software%20engineering%20intern to complete the goal: The job listings on this page load dynamically. Wait for them to appear, then list up to 5 software engineering intern postings visible on the page. Return each posting as exactly one line in this format: Job title - Company - Location - full posting URL. Do not click into individual postings and do not use any filters or pagination.",
+  "created_at": "2026-10-14T03:34:48Z",
+  "started_at": "2026-10-14T03:34:51Z",
+  "finished_at": "2026-10-14T03:41:29Z",
+  "num_of_steps": 39,
+  "result": {
+    "result": "1. Software Engineering INTERN - Microsoft - India, Multiple Locations - https://apply.careers.microsoft.com/careers/job/1970393556911730\n2. Software Engineering INTERN - Microsoft - Israel, Multiple Locations - https://apply.careers.microsoft.com/careers/job/1970393556957962\n3. Software Engineering Intern - CTJ - TS - Microsoft - United States, Washington, Redmond - https://apply.careers.microsoft.com/careers/job/1970393556983221\n4. Software Engineering Intern - CTJ - TS - Microsoft - United States, Virginia, Reston - https://apply.careers.microsoft.com/careers/job/1970393556983223\n5. Software Engineering INTERN - Microsoft - Serbia, Belgrade, Belgrade - https://apply.careers.microsoft.com/careers/job/1970393557006399"
+  },
+  "output_schema": null,
+  "profile_attached": false,
+  "profile_id": null,
+  "error": null,
+  "streaming_url": "https://ip-18-144-31-144.tetra-data.production.tinyfish.io/tf-0a405480-a689-409d-91cb-08608d5fe7c4/stream/0",
+  "browser_config": {
+    "proxy_enabled": false,
+    "proxy_country_code": null
+  },
+  "video_url": null,
+  "steps": [
+    {
+      "id": "94f0a4da-62ec-470a-870c-50d62e42b774",
+      "timestamp": "2026-10-14T03:34:52Z",
+      "status": "RUNNING",
+      "action": "Navigate to Microsoft careers search page",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/94f0a4da-62ec-470a-870c-50d62e42b774/screenshot",
+      "html": null,
+      "duration": "5.7s"
+    },
+    {
+      "id": "1b851aab-8853-4a3c-8764-03f647e031bc",
+      "timestamp": "2026-10-14T03:35:07Z",
+      "status": "RUNNING",
+      "action": "Extract job posting details from the search results page",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/1b851aab-8853-4a3c-8764-03f647e031bc/screenshot",
+      "html": null,
+      "duration": "5.5s"
+    },
+    {
+      "id": "3d290858-e4ca-4f36-a05c-42a5330da191",
+      "timestamp": "2026-10-14T03:35:17Z",
+      "status": "RUNNING",
+      "action": "Wait for dynamic job listings to load",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/3d290858-e4ca-4f36-a05c-42a5330da191/screenshot",
+      "html": null,
+      "duration": "3.3s"
+    },
+    {
+      "id": "5fe2cd1c-7cf1-4174-92fc-8e5c768788db",
+      "timestamp": "2026-10-14T03:35:22Z",
+      "status": "RUNNING",
+      "action": "Extract software engineering intern job postings",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/5fe2cd1c-7cf1-4174-92fc-8e5c768788db/screenshot",
+      "html": null,
+      "duration": "6.0s"
+    },
+    {
+      "id": "0ea0cfc3-f056-4481-9fff-81b9cb1311e5",
+      "timestamp": "2026-10-14T03:35:30Z",
+      "status": "RUNNING",
+      "action": "Extract all job card details from search results page",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/0ea0cfc3-f056-4481-9fff-81b9cb1311e5/screenshot",
+      "html": null,
+      "duration": "5.5s"
+    },
+    {
+      "id": "35e242b2-9f27-417c-bb50-a808cf2cc2b9",
+      "timestamp": "2026-10-14T03:35:39Z",
+      "status": "RUNNING",
+      "action": "Verify search keywords and find intern postings",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/35e242b2-9f27-417c-bb50-a808cf2cc2b9/screenshot",
+      "html": null,
+      "duration": "3.1s"
+    },
+    {
+      "id": "2dfba672-d944-4a75-bbe4-3fd3c9942d7f",
+      "timestamp": "2026-10-14T03:35:44Z",
+      "status": "RUNNING",
+      "action": "Revisit the search results page for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/2dfba672-d944-4a75-bbe4-3fd3c9942d7f/screenshot",
+      "html": null,
+      "duration": "4.7s"
+    },
+    {
+      "id": "ae9c97f5-2b04-461f-8c5c-8262394111e3",
+      "timestamp": "2026-10-14T03:35:53Z",
+      "status": "RUNNING",
+      "action": "Revisit Microsoft careers search for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/ae9c97f5-2b04-461f-8c5c-8262394111e3/screenshot",
+      "html": null,
+      "duration": "4.9s"
+    },
+    {
+      "id": "36ad7392-2cba-4a29-8a2e-6d35ea8b925a",
+      "timestamp": "2026-10-14T03:36:09Z",
+      "status": "RUNNING",
+      "action": "Check current page context",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/36ad7392-2cba-4a29-8a2e-6d35ea8b925a/screenshot",
+      "html": null,
+      "duration": "2.7s"
+    },
+    {
+      "id": "834fed34-360a-41d6-94e3-b1b51db95eb8",
+      "timestamp": "2026-10-14T03:36:15Z",
+      "status": "RUNNING",
+      "action": "Go back to search results for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/834fed34-360a-41d6-94e3-b1b51db95eb8/screenshot",
+      "html": null,
+      "duration": "4.6s"
+    },
+    {
+      "id": "50ff2d42-9906-4ec6-8b96-6445007350bc",
+      "timestamp": "2026-10-14T03:36:27Z",
+      "status": "RUNNING",
+      "action": "Extract software engineering intern postings",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/50ff2d42-9906-4ec6-8b96-6445007350bc/screenshot",
+      "html": null,
+      "duration": "5.9s"
+    },
+    {
+      "id": "7f7296cf-d338-4eac-add4-32ccd206ccc9",
+      "timestamp": "2026-10-14T03:36:35Z",
+      "status": "RUNNING",
+      "action": "List job postings on page",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/7f7296cf-d338-4eac-add4-32ccd206ccc9/screenshot",
+      "html": null,
+      "duration": "4.4s"
+    },
+    {
+      "id": "bf157e98-0734-4777-95df-756d3bcbbd84",
+      "timestamp": "2026-10-14T03:36:42Z",
+      "status": "RUNNING",
+      "action": "Return to search results for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/bf157e98-0734-4777-95df-756d3bcbbd84/screenshot",
+      "html": null,
+      "duration": "4.1s"
+    },
+    {
+      "id": "b1b6638c-ef38-429b-b455-1ffce29839e0",
+      "timestamp": "2026-10-14T03:36:56Z",
+      "status": "RUNNING",
+      "action": "Return to search results page",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/b1b6638c-ef38-429b-b455-1ffce29839e0/screenshot",
+      "html": null,
+      "duration": "5.5s"
+    },
+    {
+      "id": "19c98a73-8669-4be4-ad06-43c0ac04241d",
+      "timestamp": "2026-10-14T03:37:11Z",
+      "status": "RUNNING",
+      "action": "Understand current page state",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/19c98a73-8669-4be4-ad06-43c0ac04241d/screenshot",
+      "html": null,
+      "duration": "5.0s"
+    },
+    {
+      "id": "cb16d80d-cad1-4096-ac3a-f9f833141be4",
+      "timestamp": "2026-10-14T03:37:19Z",
+      "status": "RUNNING",
+      "action": "Return to software engineering intern search results",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/cb16d80d-cad1-4096-ac3a-f9f833141be4/screenshot",
+      "html": null,
+      "duration": "3.9s"
+    },
+    {
+      "id": "a23a10f1-f8b3-4fc0-8d9e-f55ce0cdd6f9",
+      "timestamp": "2026-10-14T03:37:31Z",
+      "status": "RUNNING",
+      "action": "Return to search results for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/a23a10f1-f8b3-4fc0-8d9e-f55ce0cdd6f9/screenshot",
+      "html": null,
+      "duration": "3.9s"
+    },
+    {
+      "id": "786c8ab1-bd76-4214-bda7-f7ca9b62df47",
+      "timestamp": "2026-10-14T03:38:59Z",
+      "status": "RUNNING",
+      "action": "Navigate to software engineering intern search results",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/786c8ab1-bd76-4214-bda7-f7ca9b62df47/screenshot",
+      "html": null,
+      "duration": "4.2s"
+    },
+    {
+      "id": "48fb1775-07bc-418e-acb1-70840c203f86",
+      "timestamp": "2026-10-14T03:39:07Z",
+      "status": "RUNNING",
+      "action": "Focus search input field",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/48fb1775-07bc-418e-acb1-70840c203f86/screenshot",
+      "html": null,
+      "duration": "1.1s"
+    },
+    {
+      "id": "cdd07e10-10fc-442f-aa27-06372ff25891",
+      "timestamp": "2026-10-14T03:39:09Z",
+      "status": "RUNNING",
+      "action": "Return to software engineering intern search",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/cdd07e10-10fc-442f-aa27-06372ff25891/screenshot",
+      "html": null,
+      "duration": "4.2s"
+    },
+    {
+      "id": "fdd3a183-5c31-410c-bb8c-377956835a5b",
+      "timestamp": "2026-10-14T03:39:20Z",
+      "status": "RUNNING",
+      "action": "Return to search results for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/fdd3a183-5c31-410c-bb8c-377956835a5b/screenshot",
+      "html": null,
+      "duration": "4.0s"
+    },
+    {
+      "id": "a7f962c0-23b8-4b00-b89d-abc453a0197b",
+      "timestamp": "2026-10-14T03:39:28Z",
+      "status": "RUNNING",
+      "action": "Navigate to software engineering intern search results",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/a7f962c0-23b8-4b00-b89d-abc453a0197b/screenshot",
+      "html": null,
+      "duration": "4.2s"
+    },
+    {
+      "id": "1cad4ac1-ee99-4569-938d-e3beb7c5e0d3",
+      "timestamp": "2026-10-14T03:39:37Z",
+      "status": "RUNNING",
+      "action": "Navigate to software engineering intern search results",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/1cad4ac1-ee99-4569-938d-e3beb7c5e0d3/screenshot",
+      "html": null,
+      "duration": "2.4s"
+    },
+    {
+      "id": "279f68ac-b22d-47a1-844e-2c840c5aca1f",
+      "timestamp": "2026-10-14T03:39:42Z",
+      "status": "RUNNING",
+      "action": "Navigate to Microsoft careers search for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/279f68ac-b22d-47a1-844e-2c840c5aca1f/screenshot",
+      "html": null,
+      "duration": "0.8s"
+    },
+    {
+      "id": "a26aed2c-1a15-47ee-896d-609f85f59414",
+      "timestamp": "2026-10-14T03:39:46Z",
+      "status": "RUNNING",
+      "action": "Navigate to software engineering intern search results",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/a26aed2c-1a15-47ee-896d-609f85f59414/screenshot",
+      "html": null,
+      "duration": "1.0s"
+    },
+    {
+      "id": "e6284b37-60a3-43d6-a257-31b45e255fec",
+      "timestamp": "2026-10-14T03:39:51Z",
+      "status": "RUNNING",
+      "action": "Navigate to software engineering intern search results",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/e6284b37-60a3-43d6-a257-31b45e255fec/screenshot",
+      "html": null,
+      "duration": "3.5s"
+    },
+    {
+      "id": "88709140-9e37-42b0-8ef9-298c624b501d",
+      "timestamp": "2026-10-14T03:39:54Z",
+      "status": "RUNNING",
+      "action": "Navigate to correct search results page",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/88709140-9e37-42b0-8ef9-298c624b501d/screenshot",
+      "html": null,
+      "duration": "4.3s"
+    },
+    {
+      "id": "8fa1bc7d-07c5-43c4-a749-715305bebc00",
+      "timestamp": "2026-10-14T03:40:02Z",
+      "status": "RUNNING",
+      "action": "Extract software engineering intern postings",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/8fa1bc7d-07c5-43c4-a749-715305bebc00/screenshot",
+      "html": null,
+      "duration": "5.8s"
+    },
+    {
+      "id": "894262d8-77f6-4b28-84c6-151288d69a30",
+      "timestamp": "2026-10-14T03:40:10Z",
+      "status": "RUNNING",
+      "action": "Input search term for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/894262d8-77f6-4b28-84c6-151288d69a30/screenshot",
+      "html": null,
+      "duration": "1.0s"
+    },
+    {
+      "id": "65f04a9c-2b66-4611-ad57-b7c410cd085e",
+      "timestamp": "2026-10-14T03:40:14Z",
+      "status": "RUNNING",
+      "action": "Wait for search results to load",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/65f04a9c-2b66-4611-ad57-b7c410cd085e/screenshot",
+      "html": null,
+      "duration": "5.3s"
+    },
+    {
+      "id": "86981865-c612-4bdb-a60a-ce14fd8f74f0",
+      "timestamp": "2026-10-14T03:40:21Z",
+      "status": "RUNNING",
+      "action": "Select software engineering intern from search suggestions",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/86981865-c612-4bdb-a60a-ce14fd8f74f0/screenshot",
+      "html": null,
+      "duration": "2.0s"
+    },
+    {
+      "id": "c018398d-cbb1-4e10-b0dc-bc9831960812",
+      "timestamp": "2026-10-14T03:40:27Z",
+      "status": "RUNNING",
+      "action": "Wait for search results to load",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/c018398d-cbb1-4e10-b0dc-bc9831960812/screenshot",
+      "html": null,
+      "duration": "5.3s"
+    },
+    {
+      "id": "7a42924a-ec69-444c-b20e-104fedecea72",
+      "timestamp": "2026-10-14T03:40:36Z",
+      "status": "RUNNING",
+      "action": "Return to software engineering intern search results",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/7a42924a-ec69-444c-b20e-104fedecea72/screenshot",
+      "html": null,
+      "duration": "4.6s"
+    },
+    {
+      "id": "541029a2-880d-4cb3-8299-8ef1dfd6a30f",
+      "timestamp": "2026-10-14T03:40:43Z",
+      "status": "RUNNING",
+      "action": "Return to search results for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/541029a2-880d-4cb3-8299-8ef1dfd6a30f/screenshot",
+      "html": null,
+      "duration": "3.9s"
+    },
+    {
+      "id": "589cd0cf-d157-4938-9f81-cb134bcfcd51",
+      "timestamp": "2026-10-14T03:40:50Z",
+      "status": "RUNNING",
+      "action": "Enter search term for software engineering intern",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/589cd0cf-d157-4938-9f81-cb134bcfcd51/screenshot",
+      "html": null,
+      "duration": "1.1s"
+    },
+    {
+      "id": "434e67b2-d1d4-4e2e-b2c0-b4dea59a7588",
+      "timestamp": "2026-10-14T03:40:53Z",
+      "status": "RUNNING",
+      "action": "Wait for search results to load",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/434e67b2-d1d4-4e2e-b2c0-b4dea59a7588/screenshot",
+      "html": null,
+      "duration": "5.3s"
+    },
+    {
+      "id": "b817aa1d-e21d-41b1-ae83-fd4803148293",
+      "timestamp": "2026-10-14T03:41:00Z",
+      "status": "RUNNING",
+      "action": "Select software engineering intern from suggestions",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/b817aa1d-e21d-41b1-ae83-fd4803148293/screenshot",
+      "html": null,
+      "duration": "1.8s"
+    },
+    {
+      "id": "b4694cf4-a7ac-485b-9fba-c7f8e91f7fbf",
+      "timestamp": "2026-10-14T03:41:07Z",
+      "status": "RUNNING",
+      "action": "Extract all job postings from software engineering intern search results",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/b4694cf4-a7ac-485b-9fba-c7f8e91f7fbf/screenshot",
+      "html": null,
+      "duration": "5.4s"
+    },
+    {
+      "id": "74842379-eae7-491d-912a-fa69154c5e49",
+      "timestamp": "2026-10-14T03:41:16Z",
+      "status": "RUNNING",
+      "action": "Return software engineering intern postings",
+      "screenshot": "https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/74842379-eae7-491d-912a-fa69154c5e49/screenshot",
+      "html": null,
+      "duration": "0.0s"
+    },
+    {
+      "id": "470f373d-a3bf-4a1b-9a92-580b7f6f5eed",
+      "timestamp": "2026-10-14T03:41:28Z",
+      "status": "COMPLETED",
+      "action": "Task completed",
+      "screenshot": null,
+      "html": null,
+      "duration": null
+    }
+  ]
+}

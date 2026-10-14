@@ -1,0 +1,13 @@
+{
+  "url": "https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern",
+  "goal": "List up to 5 current software engineering intern job postings visible on this page. Return each posting as exactly one line in this format: Job title - Company - Location - full posting URL. Do not click into individual postings.",
+  "run_id": "a526367e-5e24-41a3-9271-46e049342f09",
+  "status": "completed",
+  "steps": 4,
+  "polls": 4,
+  "elapsed_s": 38.5,
+  "budget_guard_tripped": false,
+  "error": null,
+  "raw_status_tail": "{\"run_id\": \"a526367e-5e24-41a3-9271-46e049342f09\", \"status\": \"COMPLETED\", \"goal\": \"Navigate to https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern to complete the goal: List up to 5 current software engineering intern job postings visible on this page. Return each posting as exactly one line in this format: Job title - Company - Location - full posting URL. Do not click into individual postings.\", \"created_at\": \"2026-10-14T03:24:55Z\", \"started_at\": \"2026-10-14T03:24:57Z\", \"finished_at\": \"2026-10-14T03:25:13Z\", \"num_of_steps\": 3, \"result\": {\"result\": \"The task cannot be completed. When navigating to https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern, the page returned a \\\"Sorry, you have been blocked\\\" error message (indicated by \\\"You are unable to access linkedin.com\\\"). This is a security/anti-bot block that prevents access to the job listings. Without being able to access the page, I cannot retrieve the software engineering intern job postings.\"}, \"output_schema\": null, \"profile_attached\": false, \"profile_id\": null, \"error\": null, \"streaming_url\": \"[streaming url stripped]\", \"browser_config\": {\"proxy_enabled\": false, \"proxy_country_code\": null}, \"video_url\": null, \"steps\": [{\"id\": \"5125f78d-5414-4d85-8071-a73b5ce95bff\", \"timestamp\": \"2026-10-14T03:24:58Z\", \"status\": \"RUNNING\", \"action\": \"Navigate to LinkedIn software engineering intern j",
+  "listings_parsed": 0
+}

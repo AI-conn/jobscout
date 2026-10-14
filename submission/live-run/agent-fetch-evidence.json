@@ -1,0 +1,11 @@
+{
+  "url": "https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern",
+  "fetch_text_chars": 0,
+  "fetch_errors": [
+    {
+      "url": "https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern",
+      "error": "target_http_error",
+      "status": 429
+    }
+  ]
+}

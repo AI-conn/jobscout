@@ -1,0 +1,13 @@
+{
+  "url": "https://careers.microsoft.com/us/en/search-results?keywords=software%20engineering%20intern",
+  "fetch_text_chars": 0,
+  "fetch_final_url": null,
+  "fetch_text_prefix": "",
+  "fetch_errors": [
+    {
+      "url": "https://careers.microsoft.com/us/en/search-results?keywords=software%20engineering%20intern",
+      "error": "adapter: Invalid control character at: line 9 column 19686 (char 20000)"
+    }
+  ],
+  "note": "Fetch returns a raw site-config JSON blob (or a redirect to it), not rendered job listings \u2014 the listings require JavaScript."
+}

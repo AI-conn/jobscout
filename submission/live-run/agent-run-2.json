@@ -1,0 +1,20 @@
+{
+  "url": "https://careers.microsoft.com/us/en/search-results?keywords=software%20engineering%20intern",
+  "goal": "The job listings on this page load dynamically. Wait for them to appear, then list up to 5 software engineering intern postings visible on the page. Return each posting as exactly one line in this format: Job title - Company - Location - full posting URL. Do not click into individual postings and do not use any filters or pagination.",
+  "run_id": "d71dcce7-b04d-4096-8f2d-77a17fcc8cc9",
+  "status": "budget_exceeded",
+  "steps": 27,
+  "polls": 28,
+  "elapsed_s": 312.6,
+  "budget_guard_tripped": true,
+  "error": "budget guard tripped: run reported 27 steps, cap is 30",
+  "raw_status_tail": "{\"run_id\": \"d71dcce7-b04d-4096-8f2d-77a17fcc8cc9\", \"status\": \"RUNNING\", \"goal\": \"Navigate to https://careers.microsoft.com/us/en/search-results?keywords=software%20engineering%20intern to complete the goal: The job listings on this page load dynamically. Wait for them to appear, then list up to 5 software engineering intern postings visible on the page. Return each posting as exactly one line in this format: Job title - Company - Location - full posting URL. Do not click into individual postings and do not use any filters or pagination.\", \"created_at\": \"2026-10-14T03:34:48Z\", \"started_at\": \"2026-10-14T03:34:51Z\", \"finished_at\": null, \"num_of_steps\": null, \"result\": null, \"output_schema\": null, \"profile_attached\": false, \"profile_id\": null, \"error\": null, \"streaming_url\": \"[streaming url stripped]\", \"browser_config\": {\"proxy_enabled\": false, \"proxy_country_code\": null}, \"video_url\": null, \"steps\": [{\"id\": \"94f0a4da-62ec-470a-870c-50d62e42b774\", \"timestamp\": \"2026-10-14T03:34:52Z\", \"status\": \"RUNNING\", \"action\": \"Navigate to Microsoft careers search page\", \"screenshot\": \"https://agent.tinyfish.ai/runs/d71dcce7-b04d-4096-8f2d-77a17fcc8cc9/steps/94f0a4da-62ec-470a-870c-50d62e42b774/screenshot\", \"html\": null, \"duration\": \"5.7s\"}, {\"id\": \"1b851aab-8853-4a3c-8764-03f647e031bc\", \"timestamp\": \"2026-10-14T03:35:07Z\", \"status\": \"RUNNING\", \"action\": \"Extract job posting details from the search results page",
+  "listings_parsed": 0,
+  "post_guard_check": {
+    "checked_after_guard_trip": true,
+    "status_at_last_check": "RUNNING",
+    "steps_array_length_at_last_check": 32,
+    "num_of_steps_at_last_check": null,
+    "note": "The run continued server-side after JobScout stopped polling; no cancel operation is exposed by the connector helper. Its steps array was 32 entries at two successive checks and had stopped growing. No listings were accepted from this run."
+  }
+}

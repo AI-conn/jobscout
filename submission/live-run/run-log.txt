@@ -1,0 +1,370 @@
+JobScout live verification run — started 2026-10-14T03:31:16+00:00
+Agent budget: 30 steps total for the whole project
+[agent] reusing stored agent record a526367e-5e24-41a3-9271-46e049342f09 (status=completed, steps=4) — no new agent spend
+========================================================================
+JobScout demo
+Preferences: role='software engineering intern' location='Remote' keywords=['python'] seniority='intern'
+========================================================================
+[evidence] Fetch of the agent target returned 0 chars of text (https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern) — at most a JS-rendered search/list view; Fetch yields no individual posting page from it, which is why the Agent path exists.
+[plan] 5 queries for role 'software engineering intern' in 'Remote'
+[search] 'software engineering intern Remote site:job-boards.greenhouse.io' -> 10 results
+[search] 'software engineering intern Remote site:jobs.lever.co' -> 9 results
+[search] 'software engineering intern Remote site:jobs.ashbyhq.com' -> 10 results
+[search] 'software engineering intern Remote careers job posting apply' -> 8 results
+[search] 'software engineering intern python Remote job posting' -> 10 results
+[select] 47 unique candidates; 10 posting pages, 37 aggregators/list pages dropped
+[fetch] 10 pages returned, 0 fetch errors
+[drop] not a single posting page: https://job-boards.greenhouse.io/knowbe4/jobs/8870749002
+[drop] not a single posting page: https://job-boards.greenhouse.io/riotgamesup/jobs/8222015
+[dedupe] 8 listings -> 8 after cross-portal dedupe
+[done] 8 ranked listings (0 hard-excluded)
+------------------------------------------------------------------------
+[agent] skipped in this pass — reusing the stored live agent record; no new agent spend.
+------------------------------------------------------------------------
+Ranked listings (8):
+ 1. [0.87] Software Engineer Intern 2027 (USA) — Pinterest — Remote
+     apply: https://www.pinterestcareers.com/jobs/7838577/software-engineer-intern-2027-usa/
+     + role match in title (2/3 terms)
+     + location matches 'Remote'
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+ 2. [0.861] Spring 2027 Software Engineering Internship/Co-op — Spacex — None
+     apply: https://job-boards.greenhouse.io/spacex/jobs/8621756002
+     + role match in title (3/3 terms)
+     + location not stated on the page (neutral)
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+ 3. [0.778] 2027 Software Engineering Intern — Censysinternships — Remote
+     apply: https://job-boards.greenhouse.io/censysinternships/jobs/8795029002
+     + role match in title (3/3 terms)
+     + location matches 'Remote'
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+ 4. [0.722] Backend Software Engineering Intern 2027 — Verkada — San Mateo, CA United States
+     apply: https://job-boards.greenhouse.io/verkada/jobs/5210813007
+     + role match in title (3/3 terms)
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): location 'San Mateo, CA United States' conflicts with 'Remote'
+ 5. [0.639] Software Engineering Internship - San Francisco — Samsara — None
+     apply: https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091
+     + role match in title (3/3 terms)
+     + location not stated on the page (neutral)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+ 6. [0.639] Software Engineering Intern (Summer) — Datadog — None
+     apply: https://job-boards.greenhouse.io/datadog/jobs/8052118
+     + role match in title (3/3 terms)
+     + location not stated on the page (neutral)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+ 7. [0.565] Software Engineer Intern (Summer 2027) — Khanacademy — None
+     apply: https://job-boards.greenhouse.io/khanacademy/jobs/8250259
+     + role match in title (2/3 terms)
+     + page text mentions Remote, but no location is stated (partial)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+ 8. [0.509] Software Engineer, Intern — Stripe — None
+     apply: https://stripe.com/careers/listing/software-engineer-intern/8031833?gh_jid=8031833
+     + role match in title (2/3 terms)
+     + location not stated on the page (neutral)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+========================================================================
+Demo complete.
+[run-a] listings=8 distinct_companies=8 companies=['Censysinternships', 'Datadog', 'Khanacademy', 'Pinterest', 'Samsara', 'Spacex', 'Stripe', 'Verkada']
+------------------------------------------------------------------------
+[run-b] prefs={'role': 'data analyst', 'location': 'New York', 'keywords': ['sql'], 'seniority': 'entry', 'visa': 'any', 'limit': 15}
+[plan] 5 queries for role 'data analyst' in 'New York'
+[search] 'data analyst New York site:job-boards.greenhouse.io' -> 8 results
+[search] 'data analyst New York site:jobs.lever.co' -> 10 results
+[search] 'data analyst New York site:jobs.ashbyhq.com' -> 10 results
+[search] 'data analyst New York careers job posting apply' -> 10 results
+[search] 'data analyst sql New York job posting' -> 8 results
+[select] 40 unique candidates; 21 posting pages, 19 aggregators/list pages dropped
+[fetch] 17 pages returned, 3 fetch errors
+[dedupe] 17 listings -> 17 after cross-portal dedupe
+[done] 15 ranked listings (0 hard-excluded)
+[run-b] listings=15 distinct_companies=14 companies=['Canary Technologies Corp', 'Confido', 'Finch', 'FoundersCard', 'Harvey', 'Moab', 'MoonPay', 'OpenX', 'Permitflow', 'The Information Lab', 'Titan', 'Veeva Systems', 'Versemedical', 'Welo Global']
+------------------------------------------------------------------------
+[recheck] re-fetching run (a) apply URLs
+[recheck] live: Software Engineer Intern 2027 (USA) (https://www.pinterestcareers.com/jobs/7838577/software-engineer-intern-2027-usa/)
+[recheck] live: Spring 2027 Software Engineering Internship/Co-op (https://job-boards.greenhouse.io/spacex/jobs/8621756002)
+[recheck] live: 2027 Software Engineering Intern (https://job-boards.greenhouse.io/censysinternships/jobs/8795029002)
+[recheck] live: Backend Software Engineering Intern 2027 (https://job-boards.greenhouse.io/verkada/jobs/5210813007)
+[recheck] live: Software Engineering Internship - San Francisco (https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091)
+[recheck] live: Software Engineering Intern (Summer) (https://job-boards.greenhouse.io/datadog/jobs/8052118)
+[recheck] live: Software Engineer Intern (Summer 2027) (https://job-boards.greenhouse.io/khanacademy/jobs/8250259)
+[recheck] live: Software Engineer, Intern (https://stripe.com/careers/listing/software-engineer-intern/8031833?gh_jid=8031833)
+[recheck] done: {'live': 8, 'gone': 0, 'unreachable': 0}
+Finished 2026-10-14T03:33:17+00:00
+Per-endpoint call counts: Search=10 calls; Fetch=39 URLs (one helper call per URL); Agent run starts=0; Agent status polls=0
+
+--- Supplementary agent run (Microsoft careers) ---
+Supplementary agent run — budget already spent: 4 of 30 steps
+Target: https://careers.microsoft.com/us/en/search-results?keywords=software%20engineering%20intern
+[evidence] Fetch text chars for target: 0
+[agent] run d71dcce7-b04d-4096-8f2d-77a17fcc8cc9 started for https://careers.microsoft.com/us/en/search-results?keywords=software%20engineering%20intern
+[agent] poll 1: status=running steps=0
+[agent] poll 2: status=running steps=0
+[agent] poll 3: status=running steps=0
+[agent] poll 4: status=running steps=4
+[agent] poll 5: status=running steps=4
+[agent] poll 6: status=running steps=4
+[agent] poll 7: status=running steps=8
+[agent] poll 8: status=running steps=8
+[agent] poll 9: status=running steps=8
+[agent] poll 10: status=running steps=11
+[agent] poll 11: status=running steps=11
+[agent] poll 12: status=running steps=11
+[agent] poll 13: status=running steps=14
+[agent] poll 14: status=running steps=14
+[agent] poll 15: status=running steps=14
+[agent] poll 16: status=running steps=17
+[agent] poll 17: status=running steps=17
+[agent] poll 18: status=running steps=17
+[agent] poll 19: status=running steps=17
+[agent] poll 20: status=running steps=17
+[agent] poll 21: status=running steps=17
+[agent] poll 22: status=running steps=17
+[agent] poll 23: status=running steps=17
+[agent] poll 24: status=running steps=17
+[agent] poll 25: status=running steps=21
+[agent] poll 26: status=running steps=21
+[agent] poll 27: status=running steps=21
+[agent] budget guard tripped: run reported 27 steps, cap is 30
+
+--- Build notes appended after the run ---
+1. This log is from the final Search+Fetch pass. Two earlier passes ran the same free
+   Search+Fetch endpoints on 2026-10-13; their outputs were superseded after extraction
+   fixes (navigation headings taken as titles, tag lines taken as locations, category
+   list URLs classified as postings, company-first page titles mis-split). The fixes are
+   covered by regression tests in app/tests/test_jobscout.py (LiveFlawRegressionTests).
+2. The Agent run was NOT re-spent in the later passes: run 1's stored record was reused
+   (--reuse-agent), which is why the per-endpoint counts above show 0 agent starts.
+3. Supplementary agent run 2 (Microsoft careers) tripped the budget guard at 27 reported
+   steps and continued server-side to a 32-entry steps array; see credit-log.md for the
+   full accounting, including the over-cap total.
+
+
+=== POST-FIX REGENERATION (2026-10-13 audit gauntlet fix pass) ===
+These outputs are POST-FIX REGENERATIONS via free Search+Fetch re-runs with the agent phase disabled/skipped — they are NOT the original live run. No TinyFish Agent run was started (agent budget closed at 44/30).
+Before (original run): run A = 8 listings / 8 distinct companies; run B = 15 listings / 14 distinct companies (including the Dice search-page listing removed by FIX-1); recheck = 8 live / 0 gone / 0 unreachable.
+POST-FIX REGENERATION (Search+Fetch only, agent disabled) — started 2026-10-14T04:50:27+00:00
+========================================================================
+JobScout demo
+Preferences: role='software engineering intern' location='Remote' keywords=['python'] seniority='intern'
+========================================================================
+[evidence] Fetch of the agent target returned 9777 chars of text (https://www.linkedin.com/jobs/search/?keywords=software%20engineering%20intern) — at most a JS-rendered search/list view; Fetch yields no individual posting page from it, which is why the Agent path exists.
+[plan] 6 queries for role 'software engineering intern' in 'Remote'
+[search] 'software engineering intern Remote site:job-boards.greenhouse.io' -> 10 results
+[search] 'software engineering intern Remote site:jobs.lever.co' -> 10 results
+[search] 'software engineering intern Remote site:jobs.ashbyhq.com' -> 10 results
+[search] 'software engineering intern Remote site:myworkdayjobs.com' -> 10 results
+[search] 'software engineering intern Remote careers job posting apply' -> 10 results
+[search] 'software engineering intern python Remote job posting' -> 10 results
+[select] 59 unique candidates; 39 posting pages, 20 aggregators/list pages dropped
+[fetch] 22 pages returned, 2 fetch errors
+[drop] not a single posting page: https://job-boards.greenhouse.io/knowbe4/jobs/8870749002
+[drop] not a single posting page: https://job-boards.greenhouse.io/riotgamesup/jobs/8222015
+[dedupe] 20 listings -> 19 after cross-portal dedupe
+[done] 15 ranked listings (0 hard-excluded)
+------------------------------------------------------------------------
+[agent] skipped in this pass — reusing the stored live agent record; no new agent spend.
+------------------------------------------------------------------------
+Ranked listings (15):
+ 1. [0.87] Software Engineer Intern — Weekday — Remote
+     apply: https://jobs.lever.co/weekdayworks/a86efff4-1c2e-43fc-8ecb-dc8f873db2f1
+     + role match in title (2/3 terms)
+     + location matches 'Remote'
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+ 2. [0.87] Software Engineer Intern — Simular — Palo Alto; Remote; Singapore
+     apply: https://jobs.ashbyhq.com/simular/063f177b-c3f2-44d2-8eeb-622a977e7d5a
+     + role match in title (2/3 terms)
+     + location matches 'Remote'
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+ 3. [0.787] Software Engineer Intern 2027 (USA) — Pinterest — None
+     apply: https://www.pinterestcareers.com/jobs/7838577/software-engineer-intern-2027-usa/
+     + role match in title (2/3 terms)
+     + page text mentions Remote, but no location is stated (partial)
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+ 4. [0.694] Software Engineering Intern - Robotics R&D page is loaded — Jj — None
+     apply: https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Santa-Clara-California-United-States-of-America/Software-Engineering-Intern---Robotics-R-D_R-099919
+     + role match in title (3/3 terms)
+     + page text mentions Remote, but no location is stated (partial)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+ 5. [0.648] Software Engineer - Intern — Realmalliance — Remote
+     apply: https://jobs.ashbyhq.com/realmalliance/a8a2f78e-1c28-4b52-a77a-c2b2ad9b7a8a
+     + role match in title (2/3 terms)
+     + location matches 'Remote'
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+ 6. [0.611] Hybrid / Remote first — Espa — Remote
+     apply: https://jobs.ashbyhq.com/espa/6fa2d441-971f-44c4-9a4e-3304ea041cc8
+     + location matches 'Remote'
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from page)
+     ! conflict (demoted, not removed): title does not mention the requested role
+ 7. [0.565] Software Engineer Intern (Summer 2027) — Khanacademy — None
+     apply: https://job-boards.greenhouse.io/khanacademy/jobs/8250259
+     + role match in title (2/3 terms)
+     + page text mentions Remote, but no location is stated (partial)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+ 8. [0.565] Software Engineer Intern page is loaded — Igsenergy — None
+     apply: https://igsenergy.wd1.myworkdayjobs.com/en-US/IGS/job/Software-Engineer-Intern_R6263
+     + role match in title (2/3 terms)
+     + page text mentions Remote, but no location is stated (partial)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+ 9. [0.509] Software Engineer, Intern — Stripe — None
+     apply: https://stripe.com/careers/listing/software-engineer-intern/8031833?gh_jid=8031833
+     + role match in title (2/3 terms)
+     + location not stated on the page (neutral)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+10. [0.509] Software Engineer, Internship — Palantir Technologies — None
+     apply: https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0
+     + role match in title (2/3 terms)
+     + location not stated on the page (neutral)
+     + seniority matches 'intern' (from title)
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+11. [0.49] Forward Deployed Software Engineer, Internship - US Government — Palantir Technologies — Honolulu, HI
+     apply: https://jobs.lever.co/palantir/315f695d-04d1-4a9a-848e-cb2bec7a997e
+     + role match in title (2/3 terms)
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+     + score capped at 0.49 due to a hard seniority/location conflict
+     ! conflict (demoted, not removed): location 'Honolulu, HI' conflicts with 'Remote'
+12. [0.49] Software Engineering Internship - San Francisco — Samsara — San Francisco
+     apply: https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091
+     + role match in title (3/3 terms)
+     + seniority matches 'intern' (from title)
+     + score capped at 0.49 due to a hard seniority/location conflict
+     ! conflict (demoted, not removed): location 'San Francisco' conflicts with 'Remote'
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+13. [0.49] Digital Software Engineering Intern - Summer 2027 page is loaded — Hyvee — West Des Moines, IA
+     apply: https://hyvee.wd1.myworkdayjobs.com/en-US/HyVeeCareers/job/Digital-Software-Engineering-Intern---Summer-2027_R250133
+     + role match in title (3/3 terms)
+     + seniority matches 'intern' (from title)
+     + score capped at 0.49 due to a hard seniority/location conflict
+     ! conflict (demoted, not removed): location 'West Des Moines, IA' conflicts with 'Remote'
+     ! conflict (demoted, not removed): none of the requested keywords appear on the page
+14. [0.49] Software Engineer Intern 2027 — Neighbor — Lehi, UT
+     apply: https://jobs.lever.co/neighbor/7d66629f-3f4b-41ee-a324-fe0154e13c46
+     + role match in title (2/3 terms)
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+     + score capped at 0.49 due to a hard seniority/location conflict
+     ! conflict (demoted, not removed): location 'Lehi, UT' conflicts with 'Remote'
+15. [0.49] Software Engineer Intern page is loaded — Redhat — Boston, MA
+     apply: https://redhat.wd5.myworkdayjobs.com/en-US/Jobs/job/Software-Engineer-Intern_R-059038
+     + role match in title (2/3 terms)
+     + keyword 'python' found on the page
+     + seniority matches 'intern' (from title)
+     + score capped at 0.49 due to a hard seniority/location conflict
+     ! conflict (demoted, not removed): location 'Boston, MA' conflicts with 'Remote'
+========================================================================
+Demo complete.
+[run-a POST-FIX] listings=15 distinct_companies=14 companies=['Espa', 'Hyvee', 'Igsenergy', 'Jj', 'Khanacademy', 'Neighbor', 'Palantir Technologies', 'Pinterest', 'Realmalliance', 'Redhat', 'Samsara', 'Simular', 'Stripe', 'Weekday']
+------------------------------------------------------------------------
+[run-b POST-FIX] prefs={'role': 'data analyst', 'location': 'New York', 'keywords': ['sql'], 'seniority': 'entry', 'visa': 'any', 'limit': 15}
+[plan] 6 queries for role 'data analyst' in 'New York'
+[search] 'data analyst New York site:job-boards.greenhouse.io' -> 10 results
+[search] 'data analyst New York site:jobs.lever.co' -> 10 results
+[search] 'data analyst New York site:jobs.ashbyhq.com' -> 10 results
+[search] 'data analyst New York site:myworkdayjobs.com' -> 10 results
+[search] 'data analyst New York careers job posting apply' -> 10 results
+[search] 'data analyst sql New York job posting' -> 8 results
+[select] 52 unique candidates; 40 posting pages, 12 aggregators/list pages dropped
+[fetch] 19 pages returned, 1 fetch errors
+[dedupe] 19 listings -> 19 after cross-portal dedupe
+[done] 15 ranked listings (0 hard-excluded)
+[run-b POST-FIX] listings=15 distinct_companies=14 companies=['Capitalone', 'Confido', 'Criminaljusticeagency', 'Dowjones', 'Garnerhealth', 'Harvey', 'Moab', 'MoonPay', 'Recidiviz', 'Rfcuny', 'Rochester', 'Stripe', 'Veeva Systems', 'Versemedical']
+------------------------------------------------------------------------
+[recheck POST-FIX] re-fetching run (a) apply URLs
+[recheck] live: Software Engineer Intern (https://jobs.lever.co/weekdayworks/a86efff4-1c2e-43fc-8ecb-dc8f873db2f1)
+[recheck] live: Software Engineer Intern (https://jobs.ashbyhq.com/simular/063f177b-c3f2-44d2-8eeb-622a977e7d5a)
+[recheck] live: Software Engineer Intern 2027 (USA) (https://www.pinterestcareers.com/jobs/7838577/software-engineer-intern-2027-usa/)
+[recheck] live: Software Engineering Intern - Robotics R&D page is loaded (https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Santa-Clara-California-United-States-of-America/Software-Engineering-Intern---Robotics-R-D_R-099919)
+[recheck] live: Software Engineer - Intern (https://jobs.ashbyhq.com/realmalliance/a8a2f78e-1c28-4b52-a77a-c2b2ad9b7a8a)
+[recheck] live: Hybrid / Remote first (https://jobs.ashbyhq.com/espa/6fa2d441-971f-44c4-9a4e-3304ea041cc8)
+[recheck] live: Software Engineer Intern (Summer 2027) (https://job-boards.greenhouse.io/khanacademy/jobs/8250259)
+[recheck] live: Software Engineer Intern page is loaded (https://igsenergy.wd1.myworkdayjobs.com/en-US/IGS/job/Software-Engineer-Intern_R6263)
+[recheck] live: Software Engineer, Intern (https://stripe.com/careers/listing/software-engineer-intern/8031833?gh_jid=8031833)
+[recheck] live: Software Engineer, Internship (https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0)
+[recheck] live: Forward Deployed Software Engineer, Internship - US Government (https://jobs.lever.co/palantir/315f695d-04d1-4a9a-848e-cb2bec7a997e)
+[recheck] live: Software Engineering Internship - San Francisco (https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091)
+[recheck] live: Digital Software Engineering Intern - Summer 2027 page is loaded (https://hyvee.wd1.myworkdayjobs.com/en-US/HyVeeCareers/job/Digital-Software-Engineering-Intern---Summer-2027_R250133)
+[recheck] live: Software Engineer Intern 2027 (https://jobs.lever.co/neighbor/7d66629f-3f4b-41ee-a324-fe0154e13c46)
+[recheck] live: Software Engineer Intern page is loaded (https://redhat.wd5.myworkdayjobs.com/en-US/Jobs/job/Software-Engineer-Intern_R-059038)
+[recheck] done: {'live': 15, 'gone': 0, 'unreachable': 0}
+[recheck POST-FIX] counts={'live': 15, 'gone': 0, 'unreachable': 0}
+Finished 2026-10-14T04:56:14+00:00
+Per-endpoint call counts (this regeneration): Search=12 calls; Fetch=60 URLs; Agent run starts=0; Agent status polls=0
+POST-FIX REGENERATION part 2 (run B + recheck; Search+Fetch only, agent disabled) — started 2026-10-14T04:53:34+00:00
+[run-b POST-FIX] attempt 1 prefs={'role': 'data analyst', 'location': 'New York', 'keywords': ['sql'], 'seniority': 'entry', 'visa': 'any', 'limit': 15}
+[plan] 6 queries for role 'data analyst' in 'New York'
+[search] 'data analyst New York site:job-boards.greenhouse.io' -> 10 results
+[search] 'data analyst New York site:jobs.lever.co' -> 10 results
+[search] 'data analyst New York site:jobs.ashbyhq.com' -> 10 results
+[search] 'data analyst New York site:myworkdayjobs.com' -> 10 results
+[search] 'data analyst New York careers job posting apply' -> 10 results
+[search] 'data analyst sql New York job posting' -> 8 results
+[select] 52 unique candidates; 40 posting pages, 12 aggregators/list pages dropped
+[fetch] 19 pages returned, 1 fetch errors
+[dedupe] 19 listings -> 19 after cross-portal dedupe
+[done] 15 ranked listings (0 hard-excluded)
+[run-b POST-FIX] listings=15 distinct_companies=14 companies=['Capitalone', 'Confido', 'Criminaljusticeagency', 'Dowjones', 'Garnerhealth', 'Harvey', 'Moab', 'MoonPay', 'Recidiviz', 'Rfcuny', 'Rochester', 'Stripe', 'Veeva Systems', 'Versemedical']
+------------------------------------------------------------------------
+[recheck POST-FIX] re-fetching run (a) apply URLs
+[recheck] live: Software Engineer Intern (https://jobs.lever.co/weekdayworks/a86efff4-1c2e-43fc-8ecb-dc8f873db2f1)
+[recheck] live: Software Engineer Intern (https://jobs.ashbyhq.com/simular/063f177b-c3f2-44d2-8eeb-622a977e7d5a)
+[recheck] live: Software Engineer Intern 2027 (USA) (https://www.pinterestcareers.com/jobs/7838577/software-engineer-intern-2027-usa/)
+[recheck] live: Software Engineering Intern - Robotics R&D page is loaded (https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Santa-Clara-California-United-States-of-America/Software-Engineering-Intern---Robotics-R-D_R-099919)
+[recheck] live: Software Engineer - Intern (https://jobs.ashbyhq.com/realmalliance/a8a2f78e-1c28-4b52-a77a-c2b2ad9b7a8a)
+[recheck] live: Hybrid / Remote first (https://jobs.ashbyhq.com/espa/6fa2d441-971f-44c4-9a4e-3304ea041cc8)
+[recheck] live: Software Engineer Intern (Summer 2027) (https://job-boards.greenhouse.io/khanacademy/jobs/8250259)
+[recheck] live: Software Engineer Intern page is loaded (https://igsenergy.wd1.myworkdayjobs.com/en-US/IGS/job/Software-Engineer-Intern_R6263)
+[recheck] live: Software Engineer, Intern (https://stripe.com/careers/listing/software-engineer-intern/8031833?gh_jid=8031833)
+[recheck] live: Software Engineer, Internship (https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0)
+[recheck] live: Forward Deployed Software Engineer, Internship - US Government (https://jobs.lever.co/palantir/315f695d-04d1-4a9a-848e-cb2bec7a997e)
+[recheck] live: Software Engineering Internship - San Francisco (https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091)
+[recheck] live: Digital Software Engineering Intern - Summer 2027 page is loaded (https://hyvee.wd1.myworkdayjobs.com/en-US/HyVeeCareers/job/Digital-Software-Engineering-Intern---Summer-2027_R250133)
+[recheck] live: Software Engineer Intern 2027 (https://jobs.lever.co/neighbor/7d66629f-3f4b-41ee-a324-fe0154e13c46)
+[recheck] live: Software Engineer Intern page is loaded (https://redhat.wd5.myworkdayjobs.com/en-US/Jobs/job/Software-Engineer-Intern_R-059038)
+[recheck] done: {'live': 15, 'gone': 0, 'unreachable': 0}
+[recheck POST-FIX] counts={'live': 15, 'gone': 0, 'unreachable': 0}
+Finished 2026-10-14T04:56:58+00:00
+Per-endpoint call counts (part 2): Search=6 calls; Fetch=35 URLs; Agent run starts=0; Agent status polls=0
+
+
+=== POST-FIX REGENERATION (2026-10-13 audit gauntlet fix pass) ===
+The run A / run B / recheck outputs alongside this log are POST-FIX REGENERATIONS via free Search+Fetch re-runs with the agent phase disabled/skipped — they are NOT the original live run. No TinyFish Agent run was started in the fix pass (agent budget closed at 44/30). Live search results drift between passes, so listing sets differ from the original run for that reason as well as for the fixes.
+Before (original run): run A = 8 listings / 8 distinct companies; run B = 15 listings / 14 distinct companies (including the Dice search-page listing removed by FIX-1); recheck = 8 live / 0 gone / 0 unreachable.
+After (post-fix regeneration): run A = 15 listings / 14 distinct companies; run B = 15 listings / 14 distinct companies (no Dice/search-page listing); recheck counts are in the part-3 lines below.
+Regeneration note: the first two regeneration attempts died on transient SSL errors to the TinyFish API (SSLEOFError) during run B / recheck phases; run A was regenerated in attempt 1, run B in attempt 1's continuation, and the recheck in part 3. Search+Fetch are free; no agent spend occurred in any attempt.
+POST-FIX REGENERATION part 3 (recheck only; Fetch free, agent disabled) — started 2026-10-14T04:56:04+00:00
+[recheck] live: Software Engineer Intern (https://jobs.lever.co/weekdayworks/a86efff4-1c2e-43fc-8ecb-dc8f873db2f1)
+[recheck] live: Software Engineer Intern (https://jobs.ashbyhq.com/simular/063f177b-c3f2-44d2-8eeb-622a977e7d5a)
+[recheck] live: Software Engineer Intern 2027 (USA) (https://www.pinterestcareers.com/jobs/7838577/software-engineer-intern-2027-usa/)
+[recheck] live: Software Engineering Intern - Robotics R&D page is loaded (https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Santa-Clara-California-United-States-of-America/Software-Engineering-Intern---Robotics-R-D_R-099919)
+[recheck] live: Software Engineer - Intern (https://jobs.ashbyhq.com/realmalliance/a8a2f78e-1c28-4b52-a77a-c2b2ad9b7a8a)
+[recheck] live: Hybrid / Remote first (https://jobs.ashbyhq.com/espa/6fa2d441-971f-44c4-9a4e-3304ea041cc8)
+[recheck] live: Software Engineer Intern (Summer 2027) (https://job-boards.greenhouse.io/khanacademy/jobs/8250259)
+[recheck] live: Software Engineer Intern page is loaded (https://igsenergy.wd1.myworkdayjobs.com/en-US/IGS/job/Software-Engineer-Intern_R6263)
+[recheck] live: Software Engineer, Intern (https://stripe.com/careers/listing/software-engineer-intern/8031833?gh_jid=8031833)
+[recheck] live: Software Engineer, Internship (https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0)
+[recheck] live: Forward Deployed Software Engineer, Internship - US Government (https://jobs.lever.co/palantir/315f695d-04d1-4a9a-848e-cb2bec7a997e)
+[recheck] live: Software Engineering Internship - San Francisco (https://www.samsara.com/company/careers/roles/8082091?gh_jid=8082091)
+[recheck] live: Digital Software Engineering Intern - Summer 2027 page is loaded (https://hyvee.wd1.myworkdayjobs.com/en-US/HyVeeCareers/job/Digital-Software-Engineering-Intern---Summer-2027_R250133)
+[recheck] live: Software Engineer Intern 2027 (https://jobs.lever.co/neighbor/7d66629f-3f4b-41ee-a324-fe0154e13c46)
+[recheck] live: Software Engineer Intern page is loaded (https://redhat.wd5.myworkdayjobs.com/en-US/Jobs/job/Software-Engineer-Intern_R-059038)
+[recheck] done: {'live': 15, 'gone': 0, 'unreachable': 0}
+[recheck POST-FIX] counts={'live': 15, 'gone': 0, 'unreachable': 0}
+Finished 2026-10-14T04:57:19+00:00
+Fetch URLs=15; Agent starts=0; Agent polls=0
