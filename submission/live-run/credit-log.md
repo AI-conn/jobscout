@@ -25,3 +25,42 @@ for run 2 — COMPLETED, num_of_steps 39, 40-entry steps array, and the
 result text containing the 5 Microsoft listings — is saved verbatim at
 `submission/live-run/agent-run-2-final-status.json` (captured by a
 read-only status check; status reads cost no steps).
+
+## Fix (2026-10-14)
+
+Root cause: the budget guard only ever stopped JobScout's own polling.
+Once a run was launched it executed server-side to completion and
+charged whatever it took — run 2's 40 steps against run 1's narrowly
+scoped 4 — and the TinyFish API/helper exposes no cancel, so nothing
+after launch could enforce the cap. The fix moves control to the only
+point that works: before launch.
+
+- **Pre-launch reservation ledger.** Every Agent launch first records
+  a reservation at the per-run ceiling in a persistent JSON credit
+  ledger (`<out>-agent-ledger.json` by default; `--agent-ledger`
+  overrides). On completion the reservation settles to the actual
+  charged steps (the higher of `num_of_steps` / steps-array length,
+  the convention used above). A reservation whose actual never
+  becomes known stays open and leaves the ledger UNCERTAIN, and an
+  UNCERTAIN ledger refuses all further Agent launches until it is
+  resolved.
+- **Ceiling + cap enforced at launch.** A launch is refused
+  (`refused_budget`, with the arithmetic stated in the record) when
+  steps already charged plus this run's ceiling would exceed the
+  project cap. Defaults: project cap 30 (`--max-agent-steps`),
+  per-run ceiling 10 (`--agent-run-ceiling`).
+- **Agent off by default.** A run requires an explicit per-run
+  opt-in: `--allow-agent` on the CLI, `allow_agent=True` in code.
+  Without it the Agent path refuses with a clear record and the
+  pipeline continues on Search+Fetch alone.
+- **Bounded goal.** The goal sent to the Agent always carries the
+  step-bound instruction "Use at most {ceiling} steps; stop and
+  return what you have when you reach it", appended in code so no
+  caller can omit it.
+
+Test count after the fix: 81, all passing (the previous 76 plus 5 new
+tests covering the opt-in refusal, the reservation-over-cap refusal,
+the UNCERTAIN-ledger lockout, reservation settle accounting, and the
+goal step bound). The historical accounting above is unchanged: this
+project's Agent budget remains closed at 44 of 30, and no Agent run
+was made to produce this fix.
