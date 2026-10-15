@@ -70,8 +70,11 @@ def main():
         json.dump(evidence, handle, indent=2)
     log(f"[evidence] Fetch text chars for target: {evidence.get('fetch_text_chars')}")
 
+    # FIX-16 (2026-10-14): the Agent path requires an explicit opt-in;
+    # this script's single supplementary run is that opt-in, stated.
     record = jobscout.run_agent_path(client, URL, GOAL, PREFS,
-                                     max_agent_steps=MAX_AGENT_STEPS, budget=budget, log=log)
+                                     max_agent_steps=MAX_AGENT_STEPS, budget=budget, log=log,
+                                     allow_agent=True)
     public = {k: v for k, v in record.items() if k != "listings"}
     public["listings_parsed"] = len(record.get("listings") or [])
     with open(os.path.join(OUT_DIR, "agent-run-2.json"), "w", encoding="utf-8") as handle:
