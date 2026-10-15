@@ -23,9 +23,11 @@ import argparse
 import csv
 import io
 import json
+import os
 import re
 import sys
 import time
+import uuid
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
@@ -1112,48 +1114,202 @@ def parse_agent_listings(text, source_url, prefs):
     return dedupe_listings(listings)
 
 
+# ------------------------------------------------------- agent budget (FIX-16)
+
+DEFAULT_AGENT_PROJECT_CAP = 30
+DEFAULT_AGENT_RUN_CEILING = 10
+AGENT_STEP_BOUND = "Use at most {ceiling} steps; stop and return what you have when you reach it."
+
+
+def with_step_bound(goal, ceiling):
+    """FIX-16: the goal sent to the Agent always carries an explicit
+    step bound. It is appended here, in the one place every outbound
+    goal passes through, so no caller can omit it."""
+    bound = AGENT_STEP_BOUND.format(ceiling=ceiling)
+    text = (goal or "").strip()
+    if bound in text:
+        return text
+    return f"{text} {bound}".strip()
+
+
+def default_agent_ledger_path(out_prefix="jobscout-results"):
+    """The credit ledger lives alongside the run outputs."""
+    return f"{out_prefix}-agent-ledger.json"
+
+
+class CreditLedger:
+    """Persistent JSON ledger of TinyFish Agent step spend (FIX-16).
+
+    The 2026-10-13 overrun (44 steps charged against a 30-step cap)
+    proved the polling guard is not a control point: once launched, a
+    run executes server-side to completion and charges whatever it
+    takes, and no cancel operation exists. The only real control
+    point is BEFORE launch, so every launch first records a
+    reservation at the per-run ceiling in this ledger; on completion
+    the reservation settles to the actual charged steps (the
+    higher-of convention of _steps_of). A reservation whose actual
+    never becomes known stays open and leaves the ledger UNCERTAIN,
+    and an UNCERTAIN ledger refuses all further Agent launches until
+    the reservation is resolved."""
+
+    def __init__(self, path, project_cap=DEFAULT_AGENT_PROJECT_CAP):
+        self.path = path
+        self.project_cap = project_cap
+        self.entries = []
+        if path and os.path.exists(path):
+            with open(path, encoding="utf-8") as handle:
+                data = json.load(handle)
+            if isinstance(data, dict):
+                if isinstance(data.get("project_cap"), int):
+                    self.project_cap = data["project_cap"]
+                self.entries = [e for e in (data.get("entries") or []) if isinstance(e, dict)]
+
+    def _save(self):
+        if not self.path:
+            return
+        payload = {"version": 1, "project_cap": self.project_cap, "entries": self.entries}
+        tmp_path = self.path + ".tmp"
+        with open(tmp_path, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, indent=2)
+        os.replace(tmp_path, self.path)
+
+    def charged_steps(self):
+        """Steps actually charged: settled actuals only."""
+        return sum(e["actual_steps"] for e in self.entries
+                   if e.get("status") == "settled" and isinstance(e.get("actual_steps"), int))
+
+    def unresolved(self):
+        return [e for e in self.entries if e.get("status") == "reserved"]
+
+    def state(self):
+        return "uncertain" if self.unresolved() else "ok"
+
+    def reserve(self, url, ceiling):
+        reservation_id = "res-" + uuid.uuid4().hex[:12]
+        self.entries.append({
+            "reservation_id": reservation_id, "run_id": None, "url": url,
+            "ceiling": ceiling, "status": "reserved", "actual_steps": None,
+            "reserved_at": now_iso(), "settled_at": None, "note": None,
+        })
+        self._save()
+        return reservation_id
+
+    def _entry(self, reservation_id):
+        for entry in self.entries:
+            if entry.get("reservation_id") == reservation_id:
+                return entry
+        return None
+
+    def attach_run(self, reservation_id, run_id):
+        entry = self._entry(reservation_id)
+        if entry is not None:
+            entry["run_id"] = run_id
+            self._save()
+
+    def settle(self, reservation_id, actual_steps):
+        entry = self._entry(reservation_id)
+        if entry is not None:
+            entry["status"] = "settled"
+            entry["actual_steps"] = int(actual_steps)
+            entry["settled_at"] = now_iso()
+            self._save()
+
+    def release(self, reservation_id, note):
+        """Release a reservation whose run was never launched (the
+        agent start failed before a run id existed): nothing was
+        charged, so the reservation closes at 0 instead of going
+        UNCERTAIN."""
+        entry = self._entry(reservation_id)
+        if entry is not None:
+            entry["status"] = "released"
+            entry["actual_steps"] = 0
+            entry["settled_at"] = now_iso()
+            entry["note"] = note
+            self._save()
+
+
 def run_agent_path(client, url, goal, prefs, max_agent_steps=30, budget=None,
                    poll_interval_s=10, timeout_s=600, sleep=time.sleep,
-                   clock=time.monotonic, log=print):
+                   clock=time.monotonic, log=print,
+                   allow_agent=False, run_ceiling=DEFAULT_AGENT_RUN_CEILING,
+                   project_cap=None, ledger=None):
     """Run the TinyFish Agent against one URL and poll to completion.
 
-    Budget guard: `budget` is a shared dict with a 'steps_used' counter
-    for the whole project. A run is refused before it starts when the
-    budget is already spent; if a status payload ever reports more
-    steps than the cap, polling stops, the trip is recorded, and no
-    listings are accepted from that run. Any failure returns an error
-    record with no listings — the caller continues Search+Fetch-only."""
+    Budget control sits BEFORE launch (FIX-16): the polling guard
+    cannot enforce a cap, because a launched run executes server-side
+    to completion and there is no cancel — the 2026-10-13 overrun
+    (44 steps charged against a 30-step cap) is the proof. So: the
+    Agent path is OFF unless the caller opts in (allow_agent=True);
+    a launch is refused when the steps already charged (from the
+    `ledger` when given, else the shared `budget` dict) plus this
+    run's ceiling would exceed the project cap; and the launch first
+    records a reservation in the ledger, which settles to the actual
+    charged steps on completion — or stays open, leaving the ledger
+    UNCERTAIN and refusing all further launches. The outbound goal
+    always carries the step bound (with_step_bound). The polling
+    guard remains as the second line of defence: it stops polling
+    when reported steps pass the ceiling or the cap, records the
+    trip, and accepts no listings from a tripped run. Any failure
+    returns an error record with no listings — the caller continues
+    Search+Fetch-only."""
     prefs = normalize_prefs(prefs)
     budget = budget if budget is not None else {"steps_used": 0}
-    budget_before = budget.get("steps_used", 0)
+    cap = project_cap if project_cap is not None else max_agent_steps
+    run_ceiling = max(1, int(run_ceiling))
+    goal = with_step_bound(goal, run_ceiling)
+
+    def refused(error):
+        record = {
+            "url": url, "goal": goal, "run_id": None, "status": "refused_budget",
+            "steps": "unreported", "polls": 0, "elapsed_s": 0,
+            "budget_guard_tripped": True, "error": error,
+            "listings": [], "raw_status_tail": None, "reservation_id": None,
+        }
+        log(f"[agent] refused before start: {error}")
+        return record
+
+    # FIX-16: the Agent path is off by default — an explicit per-run
+    # opt-in is required before anything else is even checked.
+    if not allow_agent:
+        return refused("budget guard: the agent path is off by default; an explicit opt-in is "
+                       "required (allow_agent=True in code, --allow-agent on the CLI) — "
+                       "no agent run was launched")
     # FIX-8d: a prior unreported run blocks further agent runs in
     # this process until its spend is known.
     if budget.get("unreported_run"):
-        record_pre = {
-            "url": url, "goal": goal, "run_id": None, "status": "refused_budget",
-            "steps": "unreported", "polls": 0, "elapsed_s": 0,
-            "budget_guard_tripped": True,
-            "error": "budget guard: a previous agent run in this process has unreported steps; further agent runs are blocked until that spend is known",
-            "listings": [], "raw_status_tail": None,
-        }
-        log(f"[agent] refused before start: {record_pre['error']}")
-        return record_pre
+        return refused("budget guard: a previous agent run in this process has unreported steps; "
+                       "further agent runs are blocked until that spend is known")
+    # FIX-16: an UNCERTAIN ledger blocks all launches until the open
+    # reservation is resolved.
+    if ledger is not None and ledger.state() == "uncertain":
+        return refused(f"budget guard: credit ledger {ledger.path} is UNCERTAIN — a previous agent "
+                       "run's reservation is unresolved (its actual steps are unknown); all agent "
+                       "launches are refused until that reservation is resolved")
+    charged_before = ledger.charged_steps() if ledger is not None else budget.get("steps_used", 0)
+    # FIX-16: the reservation arithmetic is the launch gate — with a
+    # reservation recorded before launch, the project can never be
+    # oversubscribed by a new run.
+    if charged_before + run_ceiling > cap:
+        return refused(f"budget guard: {charged_before} steps already charged + {run_ceiling} steps "
+                       f"reserved for this run > {cap} project cap")
+    reservation_id = ledger.reserve(url, run_ceiling) if ledger is not None else None
+    budget_before = charged_before
     record = {
         "url": url, "goal": goal, "run_id": None, "status": None,
         "steps": "unreported", "polls": 0, "elapsed_s": 0,
         "budget_guard_tripped": False, "error": None, "listings": [],
-        "raw_status_tail": None,
+        "raw_status_tail": None, "reservation_id": reservation_id,
     }
-    if budget.get("steps_used", 0) >= max_agent_steps:
-        record["status"] = "refused_budget"
-        record["error"] = f"budget guard: {budget['steps_used']} steps already used + 0 reported > {max_agent_steps} cap"
-        record["budget_guard_tripped"] = True
-        log(f"[agent] refused before start: {record['error']}")
-        return record
     started = clock()
     try:
         start_payload = client.agent_run(url, goal)
     except Exception as exc:  # agent failure degrades, never kills
+        # FIX-16: no run id was issued, so nothing was launched that
+        # could charge steps — the reservation is released, not left
+        # open to make the ledger UNCERTAIN.
+        if ledger is not None and reservation_id:
+            ledger.release(reservation_id,
+                           f"agent start failed before a run id existed: {type(exc).__name__}: {exc}")
         record["status"] = "start_failed"
         record["error"] = f"{type(exc).__name__}: {exc}"
         record["elapsed_s"] = round(clock() - started, 1)
@@ -1162,11 +1318,16 @@ def run_agent_path(client, url, goal, prefs, max_agent_steps=30, budget=None,
     run_id = _find_run_id(start_payload)
     record["run_id"] = run_id
     if not run_id:
+        if ledger is not None and reservation_id:
+            ledger.release(reservation_id,
+                           "agent start payload carried no run id; no run was launched to charge against")
         record["status"] = "start_failed"
         record["error"] = "agent start payload carried no run id"
         record["elapsed_s"] = round(clock() - started, 1)
         log(f"[agent] no run id in start payload for {url}")
         return record
+    if ledger is not None and reservation_id:
+        ledger.attach_run(reservation_id, run_id)
     log(f"[agent] run {run_id} started for {url}")
     last_payload = None
     try:
@@ -1180,12 +1341,21 @@ def run_agent_path(client, url, goal, prefs, max_agent_steps=30, budget=None,
             steps = _steps_of(payload)
             if steps is not None:
                 record["steps"] = steps
-                if steps > max_agent_steps or budget_before + steps > max_agent_steps:
+                if budget_before + steps > cap:
                     record["budget_guard_tripped"] = True
                     record["status"] = "budget_exceeded"
                     # FIX-8b: state the cumulative arithmetic.
                     record["error"] = (f"budget guard tripped: {steps} reported + {budget_before} already used "
-                                        f"> {max_agent_steps} cap")
+                                        f"> {cap} cap")
+                    log(f"[agent] {record['error']}")
+                    break
+                if steps > run_ceiling:
+                    # FIX-16: this run passed its own ceiling — the
+                    # goal's step bound was not honored server-side.
+                    record["budget_guard_tripped"] = True
+                    record["status"] = "budget_exceeded"
+                    record["error"] = (f"budget guard tripped: run reported {steps} steps > {run_ceiling} "
+                                        "per-run ceiling (the goal step bound was not honored)")
                     log(f"[agent] {record['error']}")
                     break
             log(f"[agent] poll {record['polls']}: status={record['status']} steps={record['steps']}")
@@ -1205,10 +1375,16 @@ def run_agent_path(client, url, goal, prefs, max_agent_steps=30, budget=None,
     # FIX-8a: the budget is charged even when the guard tripped.
     # FIX-8d: an unreported count conservatively consumes the whole
     # remaining budget and blocks further runs in this process.
+    # FIX-16: the ledger reservation settles to the same actual. An
+    # unreported run leaves its reservation open — which is exactly
+    # what makes the ledger UNCERTAIN and locks out further launches
+    # until the spend is resolved.
     if isinstance(record["steps"], int):
         budget["steps_used"] = budget_before + record["steps"]
+        if ledger is not None and reservation_id:
+            ledger.settle(reservation_id, record["steps"])
     elif record["run_id"]:
-        budget["steps_used"] = max_agent_steps
+        budget["steps_used"] = cap
         budget["unreported_run"] = True
     if last_payload is not None:
         # FIX-15a: never store capability-style streaming URLs.
@@ -1399,7 +1575,13 @@ def main(argv=None):
     parser.add_argument("--out", default="jobscout-results", help="Output file prefix")
     parser.add_argument("--agent-url", help="Also run the TinyFish Agent path against this URL")
     parser.add_argument("--agent-goal", help="Goal for the agent run (defaults to a listing-extraction goal from the prefs)")
-    parser.add_argument("--max-agent-steps", type=int, default=30, help="Hard cap on total agent steps")
+    parser.add_argument("--max-agent-steps", type=int, default=30, help="Hard cap on total agent steps (the project cap)")
+    parser.add_argument("--allow-agent", action="store_true",
+                        help="Opt in to the TinyFish Agent run for --agent-url (off by default; the run must also fit the credit ledger)")
+    parser.add_argument("--agent-run-ceiling", type=int, default=DEFAULT_AGENT_RUN_CEILING,
+                        help="Per-run agent step ceiling, reserved in the credit ledger before launch (default 10)")
+    parser.add_argument("--agent-ledger",
+                        help="Path to the persistent agent credit ledger JSON (default: <out>-agent-ledger.json)")
     parser.add_argument("--recheck", help="Path to a previous output JSON to freshness-recheck instead of searching")
     args = parser.parse_args(argv)
 
@@ -1428,8 +1610,9 @@ def main(argv=None):
         print(f"error: could not read prefs file: {exc}", file=sys.stderr)
         return 1
     # FIX-8c: --max-agent-steps is enforced per invocation through
-    # this shared budget dict; the project-wide total across
-    # invocations is tracked in submission/live-run/credit-log.md.
+    # this shared budget dict; FIX-16 adds the persistent credit
+    # ledger, which carries the project-wide total across invocations
+    # (submission/live-run/credit-log.md remains the human record).
     shared_budget = {"steps_used": 0}
     try:
         report = run_search_fetch(client, prefs)
@@ -1438,8 +1621,13 @@ def main(argv=None):
                 f"Find current openings matching role '{prefs['role']}' in '{prefs['location']}' "
                 f"on this page. Return each opening as one line: title - company - location - posting URL."
             )
+            ledger = CreditLedger(args.agent_ledger or default_agent_ledger_path(args.out),
+                                  project_cap=args.max_agent_steps)
             record = run_agent_path(client, args.agent_url, goal, prefs,
-                                    max_agent_steps=args.max_agent_steps, budget=shared_budget)
+                                    max_agent_steps=args.max_agent_steps, budget=shared_budget,
+                                    allow_agent=args.allow_agent,
+                                    run_ceiling=args.agent_run_ceiling,
+                                    project_cap=args.max_agent_steps, ledger=ledger)
             # FIX-14e: agent counts counted truthfully.
             report.setdefault("call_counts", {"search": 0, "fetch": 0, "agent_run": 0, "agent_status": 0})
             report["call_counts"]["agent_run"] += 1

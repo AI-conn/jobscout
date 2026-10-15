@@ -91,8 +91,11 @@ def run_demo(client, log=print, agent_url=AGENT_URL, budget=None, max_agent_step
         _print_ranked(report, log)
         return report, None
     log(f"Agent path: running the TinyFish Agent against {agent_url}")
+    # FIX-16: the Agent path is opt-in now; run_demo's run_agent flag
+    # (checked just above) IS this caller's explicit opt-in.
     record = jobscout.run_agent_path(client, agent_url, AGENT_GOAL, DEMO_PREFS,
-                                     max_agent_steps=max_agent_steps, budget=budget, log=log)
+                                     max_agent_steps=max_agent_steps, budget=budget, log=log,
+                                     allow_agent=True)
     # FIX-14e: agent counts counted truthfully in the report.
     report.setdefault("call_counts", {"search": 0, "fetch": 0, "agent_run": 0, "agent_status": 0})
     report["call_counts"]["agent_run"] += 1
