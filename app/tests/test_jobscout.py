@@ -13,6 +13,7 @@ import io
 import json
 import os
 import sys
+import tempfile
 import unittest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -376,7 +377,7 @@ class AgentPathTests(unittest.TestCase):
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(
             client, "https://www.linkedin.com/jobs/search/?keywords=x", self.GOAL, PREFS,
-            sleep=lambda _s: None, log=quiet)
+            sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertEqual(record["status"], "completed")
         self.assertEqual(record["steps"], 4)
         self.assertEqual(len(record["listings"]), 2)
@@ -388,7 +389,7 @@ class AgentPathTests(unittest.TestCase):
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(
             client, "https://example.com/jobs", self.GOAL, PREFS,
-            sleep=lambda _s: None, log=quiet)
+            sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertEqual(record["listings"], [])
         self.assertIn("agent unavailable", record["error"])
         # And the Search+Fetch pipeline still completes afterwards.
@@ -400,7 +401,7 @@ class AgentPathTests(unittest.TestCase):
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(
             client, "https://example.com/jobs", self.GOAL, PREFS,
-            sleep=lambda _s: None, log=quiet)
+            sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertEqual(record["listings"], [])
         self.assertIsNotNone(record["error"])
 
@@ -411,7 +412,7 @@ class AgentPathTests(unittest.TestCase):
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(
             client, "https://example.com/jobs", self.GOAL, PREFS,
-            max_agent_steps=30, sleep=lambda _s: None, log=quiet)
+            max_agent_steps=30, sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertTrue(record["budget_guard_tripped"])
         self.assertEqual(record["listings"], [])
 
@@ -421,7 +422,7 @@ class AgentPathTests(unittest.TestCase):
         record = jobscout.run_agent_path(
             client, "https://example.com/jobs", self.GOAL, PREFS,
             max_agent_steps=30, budget={"steps_used": 30},
-            sleep=lambda _s: None, log=quiet)
+            sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertEqual(record["status"], "refused_budget")
         self.assertEqual(record["listings"], [])
 
@@ -430,7 +431,7 @@ class AgentPathTests(unittest.TestCase):
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(
             client, "https://example.com/jobs", self.GOAL, PREFS,
-            sleep=lambda _s: None, log=quiet)
+            sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertEqual(record["steps"], "unreported")
 
 
@@ -614,7 +615,7 @@ class FixRegressionTests(unittest.TestCase):
         transport = FakeTransport(agent_statuses=[{"status": "completed", "steps": 2, "result": result_text}])
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(client, "https://portal.example/search", "goal", prefs,
-                                         sleep=lambda _s: None, log=quiet)
+                                         sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertEqual(record["listings"], [])
 
     def test_fix15d_agent_json_keeps_own_evidence(self):
@@ -631,7 +632,8 @@ class FixRegressionTests(unittest.TestCase):
         transport = FakeTransport(agent_statuses=[{"status": "running", "steps": 27}])
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(client, "https://example.com/jobs", "goal", PREFS,
-                                         max_agent_steps=30, budget=budget, sleep=lambda _s: None, log=quiet)
+                                         max_agent_steps=30, budget=budget, sleep=lambda _s: None, log=quiet,
+                                         allow_agent=True)
         self.assertTrue(record["budget_guard_tripped"])
         self.assertEqual(budget["steps_used"], 31)
         self.assertIn("27 reported + 4 already used > 30 cap", record["error"])
@@ -641,11 +643,11 @@ class FixRegressionTests(unittest.TestCase):
         transport = FakeTransport(agent_statuses=[{"status": "completed", "result": ""}])
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(client, "https://example.com/jobs", "goal", PREFS,
-                                         budget=budget, sleep=lambda _s: None, log=quiet)
+                                         budget=budget, sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertEqual(record["steps"], "unreported")
         self.assertTrue(budget.get("unreported_run"))
         second = jobscout.run_agent_path(client, "https://example.com/jobs", "goal", PREFS,
-                                         budget=budget, sleep=lambda _s: None, log=quiet)
+                                         budget=budget, sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertEqual(second["status"], "refused_budget")
 
     def test_fix8_agent_target_pages_reported(self):
@@ -754,7 +756,7 @@ class FixRegressionTests(unittest.TestCase):
         transport = FakeTransport(agent_statuses=[tail_payload])
         client = TinyFishClient(api_key="test", transport=transport)
         record = jobscout.run_agent_path(client, "https://example.com/jobs", "goal", PREFS,
-                                         sleep=lambda _s: None, log=quiet)
+                                         sleep=lambda _s: None, log=quiet, allow_agent=True)
         self.assertNotIn("tf-f847aa8c", record["raw_status_tail"] or "")
 
     def test_fix15_csv_columns_and_formula_sanitization(self):
@@ -806,6 +808,138 @@ class RecheckFixTests(unittest.TestCase):
         updated = jobscout.recheck_listings(self._client_for_page(page), self._report(), log=quiet)
         self.assertEqual(updated["listings"][0]["status"], "live")
 
+
+
+class AgentBudgetFixTests(unittest.TestCase):
+    """FIX-16 (2026-10-14): the budget-overrun fix. Control moves to
+    BEFORE launch — opt-in, ledger reservation at a per-run ceiling,
+    UNCERTAIN lockout, settle-to-actual, and a step bound that is
+    part of the outbound goal itself."""
+
+    class RecordingTransport(FakeTransport):
+        """FakeTransport that also records the agent start payloads,
+        so tests can prove what was (or was not) launched."""
+
+        def __init__(self, **kwargs):
+            super().__init__(**kwargs)
+            self.agent_payloads = []
+
+        def __call__(self, method, url, payload=None, api_key=None):
+            if "run-async" in url:
+                self.agent_payloads.append(payload)
+            return super().__call__(method, url, payload=payload, api_key=api_key)
+
+    def _client(self, transport):
+        return TinyFishClient(api_key="test", transport=transport)
+
+    def test_launch_refused_without_opt_in(self):
+        transport = self.RecordingTransport(
+            agent_statuses=[{"status": "completed", "steps": 2, "result": ""}])
+        record = jobscout.run_agent_path(
+            self._client(transport), "https://example.com/jobs", "List postings", PREFS,
+            sleep=lambda _s: None, log=quiet)
+        self.assertEqual(record["status"], "refused_budget")
+        self.assertTrue(record["budget_guard_tripped"])
+        self.assertIn("off by default", record["error"])
+        self.assertEqual(record["listings"], [])
+        # The refusal happens before launch: the Agent endpoint was
+        # never called.
+        self.assertEqual(transport.agent_payloads, [])
+
+    def test_launch_refused_when_reservation_would_exceed_cap(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ledger = jobscout.CreditLedger(os.path.join(tmp, "ledger.json"), project_cap=30)
+            prior = ledger.reserve("https://example.com/prior", 10)
+            ledger.settle(prior, 25)
+            transport = self.RecordingTransport(
+                agent_statuses=[{"status": "completed", "steps": 2, "result": ""}])
+            record = jobscout.run_agent_path(
+                self._client(transport), "https://example.com/jobs", "List postings", PREFS,
+                allow_agent=True, run_ceiling=10, project_cap=30, ledger=ledger,
+                sleep=lambda _s: None, log=quiet)
+            self.assertEqual(record["status"], "refused_budget")
+            self.assertIn("25 steps already charged + 10 steps reserved for this run > 30 project cap",
+                          record["error"])
+            self.assertEqual(transport.agent_payloads, [])
+            # A refused launch leaves no reservation behind.
+            self.assertEqual(ledger.state(), "ok")
+            self.assertEqual(len(ledger.entries), 1)
+            # Boundary: charged + ceiling == cap is still allowed.
+            ledger2 = jobscout.CreditLedger(os.path.join(tmp, "ledger2.json"), project_cap=30)
+            prior2 = ledger2.reserve("https://example.com/prior", 10)
+            ledger2.settle(prior2, 20)
+            ok_transport = self.RecordingTransport(
+                agent_statuses=[{"status": "completed", "steps": 2, "result": ""}])
+            ok = jobscout.run_agent_path(
+                self._client(ok_transport), "https://example.com/jobs", "List postings", PREFS,
+                allow_agent=True, run_ceiling=10, project_cap=30, ledger=ledger2,
+                sleep=lambda _s: None, log=quiet)
+            self.assertEqual(ok["status"], "completed")
+            self.assertEqual(ledger2.charged_steps(), 22)
+
+    def test_uncertain_ledger_locks_out_all_launches(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ledger = jobscout.CreditLedger(os.path.join(tmp, "ledger.json"), project_cap=30)
+            # The run completes but never reports a step count, so its
+            # reservation cannot settle: the ledger goes UNCERTAIN.
+            transport = self.RecordingTransport(
+                agent_statuses=[{"status": "completed", "result": ""}])
+            first = jobscout.run_agent_path(
+                self._client(transport), "https://example.com/jobs", "List postings", PREFS,
+                allow_agent=True, ledger=ledger, sleep=lambda _s: None, log=quiet)
+            self.assertEqual(first["steps"], "unreported")
+            self.assertIsNotNone(first["reservation_id"])
+            self.assertEqual(ledger.state(), "uncertain")
+            second = jobscout.run_agent_path(
+                self._client(transport), "https://example.com/jobs", "List postings", PREFS,
+                allow_agent=True, ledger=ledger, sleep=lambda _s: None, log=quiet)
+            self.assertEqual(second["status"], "refused_budget")
+            self.assertIn("UNCERTAIN", second["error"])
+            # Only the first run was ever launched.
+            self.assertEqual(len(transport.agent_payloads), 1)
+
+    def test_reservation_settles_to_actual_charged_steps(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "ledger.json")
+            ledger = jobscout.CreditLedger(path, project_cap=30)
+            # num_of_steps says 3, the steps array has 4 entries:
+            # charged at the higher figure, per the existing
+            # accounting convention.
+            transport = self.RecordingTransport(agent_statuses=[
+                {"status": "completed", "num_of_steps": 3,
+                 "steps": ["s1", "s2", "s3", "s4"], "result": ""}])
+            record = jobscout.run_agent_path(
+                self._client(transport), "https://example.com/jobs", "List postings", PREFS,
+                allow_agent=True, ledger=ledger, sleep=lambda _s: None, log=quiet)
+            self.assertEqual(record["status"], "completed")
+            self.assertEqual(record["steps"], 4)
+            self.assertIsNotNone(record["reservation_id"])
+            self.assertEqual(ledger.charged_steps(), 4)
+            self.assertEqual(ledger.state(), "ok")
+            entry = ledger.entries[-1]
+            self.assertEqual(entry["status"], "settled")
+            self.assertEqual(entry["actual_steps"], 4)
+            self.assertEqual(entry["run_id"], "run-test-1")
+            self.assertEqual(entry["reservation_id"], record["reservation_id"])
+            # Persistent: a fresh ledger over the same file sees the
+            # settled charge.
+            reloaded = jobscout.CreditLedger(path, project_cap=30)
+            self.assertEqual(reloaded.charged_steps(), 4)
+            self.assertEqual(reloaded.state(), "ok")
+
+    def test_outbound_goal_carries_the_step_bound(self):
+        transport = self.RecordingTransport(
+            agent_statuses=[{"status": "completed", "steps": 2, "result": ""}])
+        record = jobscout.run_agent_path(
+            self._client(transport), "https://example.com/jobs", "List postings", PREFS,
+            allow_agent=True, run_ceiling=7, sleep=lambda _s: None, log=quiet)
+        self.assertEqual(len(transport.agent_payloads), 1)
+        outbound_goal = transport.agent_payloads[0]["goal"]
+        self.assertIn("Use at most 7 steps; stop and return what you have when you reach it",
+                      outbound_goal)
+        self.assertTrue(outbound_goal.startswith("List postings"))
+        # The record reports the goal exactly as sent.
+        self.assertEqual(record["goal"], outbound_goal)
 
 
 if __name__ == "__main__":
