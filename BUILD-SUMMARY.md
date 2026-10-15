@@ -48,9 +48,12 @@ restoration note in DESIGN.md §6 and "Could not satisfy" #3 below):
 
 ## Tests
 
-**76 tests, all passing** (`python3 -m unittest discover -s app/tests`)
+**81 tests, all passing** (`python3 -m unittest discover -s app/tests`)
 — the original 39 plus 37 regression tests added by the 2026-10-13
-audit-gauntlet fix pass (see `audit-gauntlet/FIX-REPORT.md`).
+audit-gauntlet fix pass (see `audit-gauntlet/FIX-REPORT.md`), plus 5
+tests added by the 2026-10-14 budget fix (opt-in refusal,
+reservation-over-cap refusal, UNCERTAIN-ledger lockout, reservation
+settle accounting, goal step bound; see "Could not satisfy" #1).
 Fixtures are real TinyFish responses captured live on 2026-10-13 via
 the connector helper, labeled inside each file
 (`search_intern_remote_greenhouse.json`, `search_intern_remote_lever.json`,
@@ -134,6 +137,18 @@ pass produced the submitted outputs. The run log in
    total is **44 steps (≈ credits)** against the 30-step cap. No
    cancel operation is exposed by the connector helper to stop a
    run. Final accounting: `submission/live-run/credit-log.md`.
+   **Fixed 2026-10-14:** the guard's weakness was structural — it
+   only stopped polling, and a launched run cannot be cancelled
+   server-side. Control now sits before launch: the Agent path is
+   off by default (an explicit `--allow-agent` / `allow_agent=True`
+   opt-in per run), every launch first reserves its per-run ceiling
+   (default 10 steps) in a persistent JSON credit ledger and is
+   refused when charged steps plus the ceiling would exceed the
+   project cap, reservations settle to the actual charged steps (an
+   unresolved reservation leaves the ledger UNCERTAIN and blocks
+   all further launches), and the outbound goal always carries an
+   explicit step bound, appended in code. The 44-of-30 accounting
+   itself is unchanged — it stands as the record this fix answers.
 2. **The Agent path contributed no listings to the live outputs.**
    LinkedIn blocked the agent; the Microsoft run's listings were
    never ingested because polling had stopped at the budget-guard

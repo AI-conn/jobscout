@@ -48,7 +48,7 @@ python3 jobscout.py --role "software engineering intern" --location "Remote" \
 python3 jobscout.py --prefs examples/prefs-data-analyst-ny.json --out results-ny
 python3 jobscout.py --role "data analyst" --location "New York" \
     --agent-url "https://www.linkedin.com/jobs/search/?keywords=data%20analyst" \
-    --max-agent-steps 30 --out results-agent
+    --allow-agent --max-agent-steps 30 --out results-agent
 ```
 
 Recheck mode — re-fetch a previous run's apply links and stamp each
@@ -107,6 +107,25 @@ exceeded server-side after polling stops (44 of 30, disclosed in
 the credit log). The project-wide total across invocations is
 tracked in the credit log, and every agent run's id, URL, status,
 and reported step count is written there.
+
+**Budget fix (2026-10-14).** The guard described above controlled
+only JobScout's own polling, and the live runs proved that is not
+enough: a launched run executes server-side to completion and
+charges whatever it takes. Control now sits *before* launch. The
+Agent path is **off by default** — a run requires the explicit
+`--allow-agent` opt-in (`allow_agent=True` in code) — and every
+launch first records a reservation at a per-run ceiling (default
+10 steps, `--agent-run-ceiling`) in a persistent JSON credit ledger
+(`<out>-agent-ledger.json`; override with `--agent-ledger`). A
+launch is refused when the steps already charged plus the ceiling
+would exceed the project cap; the reservation settles to the actual
+charged steps on completion; and a reservation whose actual never
+becomes known leaves the ledger UNCERTAIN and blocks all further
+launches until it is resolved. The goal sent to the Agent also
+carries an explicit step bound — "Use at most N steps; stop and
+return what you have when you reach it" — appended in code so it
+cannot be omitted. This project's own budget stays closed at 44 of
+30; the fix governs future runs, not that accounting.
 
 ## Preferences reference
 
